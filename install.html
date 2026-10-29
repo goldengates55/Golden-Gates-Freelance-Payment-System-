@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Install Golden Gates Freelance Payment System</title>
+<meta name="description" content="Install Golden Gates Freelance Payment System on your phone from Safari (iPhone) or Chrome (Android). Works offline.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#7A0640">
+<style>
+:root{--navy:#7A0640;--amber:#F2B8D2;--bg:#F4EAEF;--card:#FCF8FA;--ink:#2B0E1B;--mute:#7A5A69;--line:#E3D0D9}
+@media (prefers-color-scheme:dark){:root{--bg:#34001A;--card:#4D0929;--ink:#FBEAF2;--mute:#D6AABE;--line:#6E2850}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+header{background:var(--navy);color:#fff;text-align:center;padding:calc(26px + env(safe-area-inset-top)) 20px 26px;border-bottom:6px solid var(--amber)}
+header img{width:72px;height:72px;border-radius:16px;display:block;margin:0 auto 12px}
+h1{margin:0;font-size:26px;line-height:1.2}
+header p{margin:8px auto 0;max-width:420px;color:#d6dae6;font-size:15px}
+main{max-width:560px;margin:0 auto;padding:18px 16px 40px}
+.lang{display:flex;gap:8px;justify-content:center;margin-bottom:14px}
+.lang button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;min-height:40px}
+.lang button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.card h2{margin:0 0 8px;font-size:18px}
+.card ol{margin:8px 0 0;padding-left:22px}.card li{margin:6px 0}
+.btn{display:block;width:100%;text-align:center;border:0;border-radius:12px;background:var(--amber);color:#34001A;font:inherit;font-weight:700;font-size:17px;padding:14px;min-height:50px;text-decoration:none;margin-top:10px;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);font-weight:600}
+.note{border-left:4px solid var(--amber);padding:10px 12px;background:var(--card);border-radius:8px;margin-bottom:14px;font-size:15px}
+.hide{display:none!important}
+.small{color:var(--mute);font-size:14px}
+footer{text-align:center;color:var(--mute);font-size:14px;padding:0 16px 30px}
+footer a{color:inherit}
+</style></head><body>
+<header>
+<img src="icon-192.png" alt="" width="72" height="72">
+<h1>Golden Gates Freelance Payment System</h1>
+<p data-k="tag">Built for proof of funds and proof of business activity, through documentation</p>
+</header>
+<main>
+<div class="lang"><button type="button" data-l="en">English</button><button type="button" data-l="fr">Français</button></div>
+
+<div class="note hide" id="inapp"><b data-k="inappT">Open this page in your browser first.</b><br><span data-k="inapp"></span>
+<button type="button" class="btn ghost" id="copy" data-k="copy">Copy the link</button></div>
+
+<div class="note hide" id="done"><b data-k="doneT">The app is already installed.</b> <span data-k="done"></span></div>
+
+<div class="card">
+<h2 data-k="introT">Put the app on your phone</h2>
+<p style="margin:0" data-k="intro">Manage your stock, sales, debts and reports. It works offline and opens full screen, like a normal app. No app store needed.</p>
+<button type="button" class="btn hide" id="install" data-k="installBtn">Install the app</button>
+<a class="btn ghost" href="./index.html" data-k="open">Open the app in the browser</a>
+</div>
+
+<div class="card" id="android">
+<h2>Android (Chrome)</h2>
+<ol data-k-list="and"></ol>
+</div>
+
+<div class="card" id="iphone">
+<h2 data-k="iosT">iPhone (Safari only)</h2>
+<ol data-k-list="ios"></ol>
+<p class="small" style="margin:10px 0 0" data-k="iosWarn"></p>
+</div>
+
+<div class="card">
+<h2 data-k="actT">Activate</h2>
+<p style="margin:0" data-k="act"></p>
+<a class="btn" id="wa" href="#" data-k="wa">Contact us on WhatsApp</a>
+</div>
+</main>
+<footer><div data-k="callT">WhatsApp and calls</div><div><b>00237 651 279 347</b></div></footer>
+
+<script>
+(function(){
+  var TXT={
+    en:{iosT:"iPhone (Safari only)",tag:"Built for proof of funds and proof of business activity, through documentation",introT:"Put the app on your phone",intro:"Make invoices and receipts, keep a cash book, and prepare a statement of funds and a history of work activity for a visa application. It works offline and opens full screen, like a normal app. No app store needed.",installBtn:"Install the app",open:"Open the app in the browser",
+      and:["Open this page in Chrome.","Tap the menu (3 dots, top right).","Tap Install app (or Add to Home screen).","Open the app from its new icon."],
+      ios:["Open this page in Safari.","Tap the Share button.","Scroll down and tap Add to Home Screen, then Add.","Always open the app from its Home Screen icon."],
+      iosWarn:"On iPhone, use Safari only. Chrome and in-app browsers cannot add the app. Keep using the Home Screen icon so Safari does not clear your data, and save a backup file every week (Profile > Backup).",
+      actT:"Activate",act:"After installing, the app shows your phone code (also in Profile > License). Send it to us on WhatsApp and we will send you your activation code.",wa:"Contact us on WhatsApp",callT:"WhatsApp and calls",
+      inappT:"Open this page in your browser first.",inapp:"You opened the link inside another app (WhatsApp, Facebook, Instagram...). Tap the menu (3 dots) and choose Open in Chrome (Android) or Open in Safari (iPhone), or copy the link and paste it there.",copy:"Copy the link",copied:"Link copied",
+      doneT:"The app is already installed.",done:"Open it from your home screen.",waMsg:"Hello, I installed Golden Gates Freelance Payment System and want to activate it."},
+    fr:{iosT:"iPhone (Safari uniquement)",tag:"Conçu pour la preuve de fonds et la preuve d'activité professionnelle, par la documentation",introT:"Mettez l'application sur votre téléphone",intro:"Faites des factures et des reçus, tenez un livre de caisse et préparez un relevé de fonds et un historique d'activité pour une demande de visa. Elle fonctionne sans internet et s'ouvre en plein écran, comme une vraie application. Pas besoin de boutique d'applications.",installBtn:"Installer l'application",open:"Ouvrir l'application dans le navigateur",
+      and:["Ouvrez cette page dans Chrome.","Touchez le menu (3 points, en haut à droite).","Touchez Installer l'application (ou Ajouter à l'écran d'accueil).","Ouvrez l'application depuis sa nouvelle icône."],
+      ios:["Ouvrez cette page dans Safari.","Touchez le bouton Partager.","Faites défiler et touchez Sur l'écran d'accueil, puis Ajouter.","Ouvrez toujours l'application depuis son icône de l'écran d'accueil."],
+      iosWarn:"Sur iPhone, utilisez uniquement Safari. Chrome et les navigateurs intégrés ne peuvent pas ajouter l'application. Utilisez toujours l'icône de l'écran d'accueil pour que Safari n'efface pas vos données, et enregistrez un fichier de sauvegarde chaque semaine (Profil > Sauvegarde).",
+      actT:"Activation",act:"Après l'installation, l'application affiche votre code téléphone (aussi dans Profil > Licence). Envoyez-le-nous sur WhatsApp et nous vous enverrons votre code d'activation.",wa:"Nous contacter sur WhatsApp",callT:"WhatsApp et appels",
+      inappT:"Ouvrez d'abord cette page dans votre navigateur.",inapp:"Vous avez ouvert le lien dans une autre application (WhatsApp, Facebook, Instagram...). Touchez le menu (3 points) et choisissez Ouvrir dans Chrome (Android) ou Ouvrir dans Safari (iPhone), ou copiez le lien et collez-le là-bas.",copy:"Copier le lien",copied:"Lien copié",
+      doneT:"L'application est déjà installée.",done:"Ouvrez-la depuis votre écran d'accueil.",waMsg:"Bonjour, j'ai installé Golden Gates Freelance Payment System et je veux l'activer."}
+  };
+  var $=function(s,r){return (r||document).querySelector(s)}, all=function(s){return [].slice.call(document.querySelectorAll(s))};
+  var lang="en"; try{var sv=localStorage.getItem("gg.site.lang"); if(sv==="fr"||sv==="en")lang=sv; else if(/^fr/i.test(navigator.language||""))lang="fr";}catch(e){ if(/^fr/i.test(navigator.language||""))lang="fr"; }
+  function set(l){
+    lang=l; var t=TXT[l]; document.documentElement.lang=l;
+    all("[data-k]").forEach(function(e){ var k=e.getAttribute("data-k"); if(t[k]!==undefined) e.textContent=t[k]; });
+    all("[data-k-list]").forEach(function(e){ e.innerHTML=""; t[e.getAttribute("data-k-list")].forEach(function(s){ var li=document.createElement("li"); li.textContent=s; e.appendChild(li); }); });
+    all(".lang button").forEach(function(b){ b.classList.toggle("on",b.dataset.l===l); });
+    $("#wa").href="https://wa.me/237651279347?text="+encodeURIComponent(t.waMsg);
+    try{localStorage.setItem("gg.site.lang",l);}catch(e){}
+  }
+  all(".lang button").forEach(function(b){ b.onclick=function(){ set(b.dataset.l); }; });
+  set(lang);
+
+  var ua=navigator.userAgent||"", ios=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1), android=/Android/i.test(ua);
+  var inapp=/FBAN|FBAV|Instagram|WhatsApp|Line\/|Telegram|TikTok|Snapchat|MicroMessenger|; wv\)/i.test(ua);
+  var standalone=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;
+  /* both sets of steps are always shown; the visitor's own phone comes first */
+  if(ios) $("#android").parentNode.insertBefore($("#iphone"),$("#android"));
+  if(standalone) $("#done").classList.remove("hide");
+  if(inapp&&!standalone) $("#inapp").classList.remove("hide");
+  $("#copy").onclick=function(){
+    var u=location.href.split("#")[0], ok=function(){ $("#copy").textContent=TXT[lang].copied; };
+    try{ navigator.clipboard.writeText(u).then(ok,function(){ prompt("",u); }); }catch(e){ prompt("",u); }
+  };
+
+  var evt=null;
+  window.addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); evt=e; $("#install").classList.remove("hide"); });
+  window.addEventListener("appinstalled",function(){ $("#install").classList.add("hide"); $("#done").classList.remove("hide"); });
+  $("#install").onclick=function(){ if(evt){ evt.prompt(); evt=null; $("#install").classList.add("hide"); } };
+  if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
+})();
+</script>
+</body></html>
