@@ -358,7 +358,7 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
   <p id="cb-cres" role="status"></p>
   <p id="cb-note" role="status"></p>
  </div>
- <div class="col wide"><div class="scroll" id="cb-list"></div></div>
+ <div class="col wide"><div class="scroll" id="cb-list"></div><input id="cb-file" type="file" accept="image/*" hidden><p id="cb-pmsg" role="status"></p></div>
 </section>
 <section id="t-co" class="sec2" hidden>
  <div class="col">
@@ -445,6 +445,9 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
   <p><b>Income consistency</b> (Profile): the money in per month over the last 3, 6 or 12 months, the average per active month and the months with nothing recorded. <b>Evidence check</b> (Profile) lists what is missing: payments without proof, invoices without work period or place, clients without a signed letter, statements without a photo. Fix what is real; never invent anything to fill a gap.</p>
   <p><b>Appointment or filing date</b> (Profile, Travel plan): shows the days left on the balance board and whether your pack and backup are recent. <b>Add reminders to my calendar</b> makes a file that your phone calendar turns into reminders 14 days and 3 days before, and on the day.</p>
   <p><b>Visa evidence pack (single PDF):</b> in Export and reports, the same documents in one PDF with a contents page and page numbers, for portals that accept only one file. The payment proofs, statement photos, signed letters and work samples are added as pages.</p>
+  <p><b>Cover letter</b> (Profile): fill in who it is for, the application type, what you do and the trip purpose, tap <b>Write the letter text</b> for a draft built from your records, then edit it so that every sentence is true. Print, sign and send it with your pack. <b>Tax filing summary (PDF)</b> (Export and reports) gives totals, tax collected and withheld, expenses by category and a month-by-month table for preparing a tax return; it is not a tax return.</p>
+  <p><b>Repeat</b> (Invoices): copies an earlier invoice into the form for a regular client, with today's date and an empty work period that you must fill in for the new work. <b>Photo</b> (Cash book): keeps a photo of a receipt with a cash entry; the photos go into the packs. The <b>Evidence check</b> now also warns about duplicate invoice numbers, payments dated before their invoice, invoices dated in the future, odd work periods, a client spelled two ways and invoices much larger than usual: they are questions to check, not accusations.</p>
+  <p><b>Language of the documents</b> (Export and reports) prints the documents and packs in English or French whatever language the app shows. <b>Share documents</b> (browsers that can share files) sends a document to WhatsApp or email instead of downloading it; on the phone app the share sheet is used. Every document now has a <b>QR code</b> next to its verification code: in Verify a document, scan it (where the phone allows) or paste the text it holds, and the number and code are filled in.</p>
   <h3>Travel plan and visa evidence pack</h3>
   <p><b>Visa evidence pack (ZIP):</b> tap <b>Make visa evidence pack</b> on the balance board (top of every tab); it takes you to Export and reports. Choose the period, then <b>Visa evidence pack (ZIP)</b>. You get a cover page with a declaration to sign, the statement of funds, the history of work activity, the statement, one PDF per invoice (with work period and place) and per receipt, the payment proofs and the invoice and receipt lists. It contains only what you recorded. Read it yourself and ask the embassy or consulate exactly what they require; the app cannot promise acceptance.</p>
   <p><b>Travel plan</b> (Profile): a <b>Trip goal</b> (amount and date) with a progress bar, also shown on the balance board; a <b>Destination currency</b> where you type your own rate for each currency, so the board and the statement show approximate amounts (your rate, not official, works offline); and a <b>Visa readiness checklist</b> that ticks what the app can see and lets you tick the rest. For travel costs the Cash book has the categories <b>Visa and application fees</b>, <b>Travel ticket</b> and <b>Travel insurance</b>.</p>
@@ -462,7 +465,8 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
   <li><b>Verify says the code does not match:</b> the invoice was edited after the PDF was made, the PDF was altered, or the code was typed wrongly. Create the PDF again from the app.</li>
   <li><b>Data gone after reinstalling:</b> use Restore from backup.</li></ul>
   <h3>What's new</h3>
-  <ul><li><b>2026-10-29 (version 1.4):</b> Visa evidence pack as one PDF; bank and mobile-money statement log (shown on the Statement of funds); client confirmation letters with signed photo; work samples; income consistency view; evidence check; appointment date with countdown and calendar reminders.</li>
+  <ul><li><b>2026-10-30 (version 1.5):</b> Cover letter; Tax filing summary (PDF); Repeat invoice; receipt photos on cash entries; more consistency warnings in the Evidence check; language of the documents; share option; QR code on every document.</li>
+  <li><b>2026-10-29 (version 1.4):</b> Visa evidence pack as one PDF; bank and mobile-money statement log (shown on the Statement of funds); client confirmation letters with signed photo; work samples; income consistency view; evidence check; appointment date with countdown and calendar reminders.</li>
   <li><b>2026-10-29 (version 1.3):</b> Statement of funds (PDF) and History of work activity (PDF), both with verification codes and both in the visa evidence pack; the app is now presented around proof of funds and proof of business activity.</li>
   <li><b>2026-10-29 (version 1.2):</b> Travel plan (trip goal, destination currency with your own rate, visa readiness checklist), Visa evidence pack (ZIP), travel cost categories in the Cash book; the Invoice PDF of a fully paid invoice now says PAID IN FULL.</li>
   <li><b>2026-10-29 (version 1.1):</b> the app opens with an Account balance board on every tab.</li>
@@ -518,6 +522,9 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
   <p><b>Régularité des revenus</b> (Profil) : l’argent reçu par mois sur les 3, 6 ou 12 derniers mois, la moyenne par mois actif et les mois sans enregistrement. Le <b>Contrôle des preuves</b> (Profil) liste ce qui manque : paiements sans preuve, factures sans période ni lieu, clients sans lettre signée, relevés sans photo. Corrigez ce qui est réel ; n’inventez jamais rien pour combler un vide.</p>
   <p><b>Date de rendez-vous ou de dépôt</b> (Profil, Projet de voyage) : affiche les jours restants sur le tableau du solde et si votre dossier et votre sauvegarde sont récents. <b>Ajouter des rappels à mon calendrier</b> crée un fichier que le calendrier du téléphone transforme en rappels 14 jours et 3 jours avant, et le jour même.</p>
   <p><b>Dossier de preuves pour visa (PDF unique) :</b> dans Exports et rapports, les mêmes documents dans un seul PDF avec sommaire et numéros de page, pour les portails qui n’acceptent qu’un fichier. Les preuves de paiement, photos de relevés, lettres signées et exemples de travail sont ajoutés en pages.</p>
+  <p><b>Lettre de motivation</b> (Profil) : indiquez à qui elle s’adresse, le type de demande, votre activité et l’objet du voyage, touchez <b>Écrire le texte de la lettre</b> pour un brouillon construit d’après vos enregistrements, puis modifiez-le pour que chaque phrase soit vraie. Imprimez, signez et joignez-la à votre dossier. Le <b>Récapitulatif pour la déclaration d’impôts (PDF)</b> (Exports et rapports) donne les totaux, la taxe collectée et retenue, les dépenses par catégorie et un tableau mois par mois pour préparer une déclaration ; ce n’est pas une déclaration.</p>
+  <p><b>Répéter</b> (Factures) : copie une facture précédente dans le formulaire pour un client régulier, avec la date du jour et une période de travail vide à remplir pour le nouveau travail. <b>Photo</b> (Livre de caisse) : garde la photo d’un reçu avec une opération de caisse ; les photos vont dans les dossiers. Le <b>Contrôle des preuves</b> signale aussi les numéros de facture en double, les paiements datés avant leur facture, les factures datées dans le futur, les périodes de travail étranges, un client écrit de deux façons et les factures bien plus élevées que d’habitude : ce sont des questions à vérifier, pas des accusations.</p>
+  <p><b>Langue des documents</b> (Exports et rapports) imprime les documents et dossiers en français ou en anglais quelle que soit la langue de l’application. <b>Partager les documents</b> (navigateurs capables de partager des fichiers) envoie un document vers WhatsApp ou e-mail au lieu de le télécharger ; sur l’application du téléphone, le menu de partage est utilisé. Chaque document porte maintenant un <b>code QR</b> à côté de son code de vérification : dans Vérifier un document, scannez-le (si le téléphone le permet) ou collez le texte qu’il contient, et le numéro et le code sont remplis.</p>
   <h3>Projet de voyage et dossier de preuves pour visa</h3>
   <p><b>Dossier de preuves pour visa (ZIP) :</b> touchez <b>Créer le dossier de preuves pour visa</b> sur le tableau du solde (en haut de chaque onglet) ; vous arrivez dans Exports et rapports. Choisissez la période puis <b>Dossier de preuves pour visa (ZIP)</b>. Vous obtenez une page de garde avec une déclaration à signer, le relevé de fonds, l’historique d’activité, le relevé, un PDF par facture (avec période et lieu de travail) et par reçu, les preuves de paiement et les listes de factures et de reçus. Il ne contient que ce que vous avez enregistré. Relisez-le vous-même et demandez à l’ambassade ou au consulat exactement ce qu’ils exigent ; l’application ne peut pas promettre l’acceptation.</p>
   <p><b>Projet de voyage</b> (Profil) : un <b>Objectif du voyage</b> (montant et date) avec une barre de progression, aussi affichée sur le tableau du solde ; une <b>Devise de destination</b> où vous saisissez votre propre taux pour chaque devise, afin que le tableau et le relevé affichent des montants approximatifs (votre taux, non officiel, fonctionne hors ligne) ; et une <b>Liste de préparation du visa</b> qui coche ce que l’application voit et vous laisse cocher le reste. Pour les frais de voyage, le Livre de caisse propose les catégories <b>Frais de visa et de dossier</b>, <b>Billet de voyage</b> et <b>Assurance voyage</b>.</p>
@@ -535,7 +542,8 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
   <li><b>La vérification indique que le code ne correspond pas :</b> la facture a été modifiée après la création du PDF, le PDF a été altéré, ou le code est mal saisi. Recréez le PDF depuis l’application.</li>
   <li><b>Données disparues après réinstallation :</b> utilisez Restaurer une sauvegarde.</li></ul>
   <h3>Nouveautés</h3>
-  <ul><li><b>2026-10-29 (version 1.4) :</b> Dossier de preuves pour visa en un seul PDF ; registre des relevés bancaires et de mobile money (affiché sur le Relevé de fonds) ; lettres de confirmation des clients avec photo signée ; exemples de travail ; régularité des revenus ; contrôle des preuves ; date de rendez-vous avec compte à rebours et rappels de calendrier.</li>
+  <ul><li><b>2026-10-30 (version 1.5) :</b> Lettre de motivation ; Récapitulatif pour la déclaration d’impôts (PDF) ; Répéter une facture ; photos de reçus sur les opérations de caisse ; davantage d’alertes de cohérence dans le Contrôle des preuves ; langue des documents ; option de partage ; code QR sur chaque document.</li>
+  <li><b>2026-10-29 (version 1.4) :</b> Dossier de preuves pour visa en un seul PDF ; registre des relevés bancaires et de mobile money (affiché sur le Relevé de fonds) ; lettres de confirmation des clients avec photo signée ; exemples de travail ; régularité des revenus ; contrôle des preuves ; date de rendez-vous avec compte à rebours et rappels de calendrier.</li>
   <li><b>2026-10-29 (version 1.3) :</b> Relevé de fonds (PDF) et Historique d’activité professionnelle (PDF), avec codes de vérification et inclus dans le dossier de preuves pour visa ; l’application est désormais présentée autour de la preuve de fonds et de la preuve d’activité professionnelle.</li>
   <li><b>2026-10-29 (version 1.2) :</b> Projet de voyage (objectif, devise de destination avec votre propre taux, liste de préparation du visa), Dossier de preuves pour visa (ZIP), catégories de frais de voyage dans le Livre de caisse ; le PDF d’une facture entièrement payée indique maintenant PAYÉE INTÉGRALEMENT.</li>
   <li><b>2026-10-29 (version 1.1) :</b> l’application s’ouvre sur un tableau du solde du compte, sur chaque onglet.</li>
@@ -594,11 +602,21 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
   <p id="ws-msg" role="status"></p>
   <div id="ws-list"></div>
  </details>
+ <details class="col wide acc" id="cv-acc"><summary><h2>Cover letter</h2></summary>
+  <p class="hint">A one-page letter to the embassy, consulate or office. Fill in the boxes, tap <b>Write the letter text</b> to get a draft built from your records (first invoice, clients, months with activity, average income), then <b>edit it so every sentence is true and in your own words</b>. Sign the printed letter. The embassy reads this letter first: never put in anything you cannot prove.</p>
+  <label>To (embassy, consulate or office)<input id="cv-to" placeholder="e.g. Visa Section, Embassy of ..."></label>
+  <div class="g2"><label>Application type<input id="cv-ty" placeholder="e.g. short-stay visa"></label><label>What I do<input id="cv-wh" placeholder="e.g. graphic designer"></label></div>
+  <label>Trip purpose and dates<input id="cv-tr" placeholder="e.g. client meetings, 3 weeks from 2027-03-01"></label>
+  <label>Letter text<textarea id="cv-bd" rows="10"></textarea></label>
+  <div class="acts"><button class="sec" id="cv-gen" type="button">Write the letter text</button><button class="pri" id="cv-pdf" type="button">Cover letter (PDF)</button></div>
+  <p id="cv-msg" role="status"></p>
+ </details>
  <details class="col wide acc" id="vf-acc"><summary><h2>Verify a document</h2></summary>
   <p class="hint">Every invoice and receipt PDF carries a verification code. Type the document number and the code printed on it to check that the PDF still matches the record kept in this app. It only confirms that the PDF was produced by this app and that its main details (number, client, date, currency, amounts) have not changed since. It does not prove the work was done or the payment was made, and it cannot be checked by anyone who does not have this app’s records.</p>
   <label>Document number<input id="vf-no" placeholder="e.g. INV-2041 or RCPT-1007" autocomplete="off"></label>
   <label>Verification code<input id="vf-code" placeholder="XXXX-XXXX-XXXX" autocomplete="off" maxlength="14"></label>
-  <div class="acts" style="margin-top:10px"><button class="sec" id="vf-go" type="button">Check</button></div>
+  <div class="acts" style="margin-top:10px"><button class="sec" id="vf-go" type="button">Check</button><button class="sec" id="vf-scan" type="button" hidden>Scan the QR code</button></div>
+  <video id="vf-vid" playsinline muted hidden style="width:100%;border-radius:10px;margin-top:10px"></video>
   <p id="vf-msg" role="status"></p>
  </details>
  <details class="col wide acc" id="pin-acc"><summary><h2>App lock (PIN)</h2></summary>
@@ -687,11 +705,14 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
    <label class="chk"><input type="checkbox" value="sum" checked>Summary</label>
   </fieldset>
   <p class="hint" id="ex-count" role="status"></p>
+  <label class="chk" id="ex-share-w" hidden><input type="checkbox" id="ex-share">Share documents (WhatsApp, email...) instead of downloading them</label>
+  <label>Language of the documents<select id="ex-lang"><option value="">Same as the app</option><option value="en">English</option><option value="fr">Français</option></select></label>
+  <p class="hint">The statement of funds, history of work activity, tax summary, work samples, cover letter, confirmation letters and the packs are printed in this language. Invoices and receipts keep the language chosen on each one.</p>
   <div class="sh">Evidence packs</div>
   <div class="acts stack"><button class="pri" id="ex-one">Visa evidence pack (single PDF)</button><button class="pri" id="ex-pack">Visa evidence pack (ZIP)</button></div>
   <p class="hint">The single PDF puts the documents in one file, in order, with a contents page and page numbers, for portals that accept only one PDF. The ZIP keeps each document as its own file. Both contain only what you recorded in this app, with the payment proofs, statement photos, signed letters and work samples you attached. Check them yourself and ask the embassy or consulate what they require.</p>
   <div class="sh">Single documents</div>
-  <div class="acts stack"><button class="sec" id="ex-fund">Statement of funds (PDF)</button><button class="sec" id="ex-act">History of work activity (PDF)</button><button class="sec" id="ex-stm">Statement of services and income (PDF)</button><button class="sec" id="ex-work">Work samples (PDF)</button><button class="sec" id="ex-pdf">Summary report (PDF)</button></div>
+  <div class="acts stack"><button class="sec" id="ex-fund">Statement of funds (PDF)</button><button class="sec" id="ex-act">History of work activity (PDF)</button><button class="sec" id="ex-stm">Statement of services and income (PDF)</button><button class="sec" id="ex-work">Work samples (PDF)</button><button class="sec" id="ex-cov">Cover letter (PDF)</button><button class="sec" id="ex-tax">Tax filing summary (PDF)</button><button class="sec" id="ex-pdf">Summary report (PDF)</button></div>
   <p class="hint">The statement of funds states the balance recorded in the app as of the end date (or today), month by month. The history of work activity shows invoices, payments and clients month by month. The statement of services and income lists the invoices you issued and the payments you received, per client. All are prepared by you from your own records, with a declaration line for your signature. None is an audit, a bank statement or an official certificate.</p>
   <div class="sh">Data for a spreadsheet</div>
   <div class="acts stack"><button class="sec" id="ex-go">Export (CSV or ZIP)</button></div>
@@ -707,7 +728,7 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
   <button class="sec" id="ex-open">Open Export and reports</button>
   <button class="sec" id="erase" style="margin-top:12px">Erase all data on this device</button>
   <p class="hint"><a href="privacy.html" id="pv-link">Privacy policy and terms of use</a></p>
-  <p class="hint" style="margin-top:12px">Version 1.4</p>
+  <p class="hint" style="margin-top:12px">Version 1.5</p>
  </details>
 </section>
 </main>
@@ -762,6 +783,13 @@ Object.assign(FR,{"User manual":"Manuel d’utilisation"});
 Object.assign(FR,{"The statement of funds states the balance recorded in the app as of the end date (or today), month by month. The history of work activity shows invoices, payments and clients month by month. The statement lists the invoices you issued and the payments you received, per client. All are prepared by you from your own records, with a declaration line for your signature. None is an audit, a bank statement or an official certificate.":"Le relevé de fonds indique le solde enregistré dans l’application à la date de fin (ou aujourd’hui), mois par mois. L’historique d’activité montre les factures, paiements et clients mois par mois. Le relevé liste les factures émises et les paiements reçus, par client. Tous sont préparés par vous à partir de vos propres registres, avec une ligne de déclaration à signer. Aucun n’est un audit, un relevé bancaire ou un certificat officiel.","Statement of funds (PDF)":"Relevé de fonds (PDF)","History of work activity (PDF)":"Historique d’activité professionnelle (PDF)","Statement of funds":"Relevé de fonds","History of work activity":"Historique d’activité professionnelle","As of":"Au","Recorded balance as of":"Solde enregistré au","Payments received (not cash), net of fees":"Paiements reçus (hors espèces), nets de frais","Month by month":"Mois par mois","Month":"Mois","Money in":"Entrées d’argent","Balance at month end":"Solde en fin de mois","Payments":"Paiements","Clients":"Clients","First invoice":"Première facture","Last invoice":"Dernière facture","I exported and signed the Statement of funds and the History of work activity":"J’ai exporté et signé le Relevé de fonds et l’Historique d’activité professionnelle"});
 Object.assign(FR,{"Make visa evidence pack":"Créer le dossier de preuves pour visa"});
 Object.assign(FR,{"Work samples":"Exemples de travail","Work samples (PDF)":"Exemples de travail (PDF)","Add examples of the work you really did: a title, the client if you may name them, the date, a short description, a link and a photo or screenshot. They print on one page as a Work samples document and are added to the packs. Only add work that is yours and that you are allowed to show.":"Ajoutez des exemples du travail que vous avez réellement fait : un titre, le client si vous pouvez le nommer, la date, une courte description, un lien et une photo ou capture d’écran. Ils s’impriment dans un document Exemples de travail et sont ajoutés aux dossiers. N’ajoutez que du travail qui est le vôtre et que vous avez le droit de montrer.","Title":"Titre","Client (optional)":"Client (facultatif)","Link (optional)":"Lien (facultatif)","Description":"Description","e.g. Logo for Café Wouri":"p. ex. Logo pour Café Wouri","What you did and for what purpose":"Ce que vous avez fait et dans quel but","Attach photo or screenshot":"Joindre une photo ou une capture","Add work sample":"Ajouter l’exemple","No work samples yet.":"Aucun exemple de travail."});
+Object.assign(FR,{"Scan the QR code":"Scanner le code QR","Stop scanning":"Arrêter le scan"});
+Object.assign(FR,{"Share documents (WhatsApp, email...) instead of downloading them":"Partager les documents (WhatsApp, e-mail...) au lieu de les télécharger"});
+Object.assign(FR,{"Language of the documents":"Langue des documents","Same as the app":"Comme l’application","The statement of funds, history of work activity, tax summary, work samples, cover letter, confirmation letters and the packs are printed in this language. Invoices and receipts keep the language chosen on each one.":"Le relevé de fonds, l’historique d’activité, le récapitulatif fiscal, les exemples de travail, la lettre de motivation, les lettres de confirmation et les dossiers sont imprimés dans cette langue. Les factures et reçus gardent la langue choisie sur chacun."});
+Object.assign(FR,{"Photo":"Photo","Remove photo":"Retirer la photo","Photos of expense and cash receipts":"Photos des reçus de dépenses et d’espèces"});
+Object.assign(FR,{"Repeat":"Répéter"});
+Object.assign(FR,{"Tax filing summary":"Récapitulatif pour la déclaration d’impôts","Tax filing summary (PDF)":"Récapitulatif pour la déclaration d’impôts (PDF)"});
+Object.assign(FR,{"Cover letter":"Lettre de motivation","Cover letter (PDF)":"Lettre de motivation (PDF)","A one-page letter to the embassy, consulate or office. Fill in the boxes, tap Write the letter text to get a draft built from your records (first invoice, clients, months with activity, average income), then edit it so every sentence is true and in your own words. Sign the printed letter. The embassy reads this letter first: never put in anything you cannot prove.":"Une lettre d’une page à l’ambassade, au consulat ou au bureau. Remplissez les cases, touchez Écrire le texte de la lettre pour obtenir un brouillon construit d’après vos enregistrements (première facture, clients, mois d’activité, revenu moyen), puis modifiez-le pour que chaque phrase soit vraie et dans vos propres mots. Signez la lettre imprimée. L’ambassade lit cette lettre en premier : ne mettez jamais rien que vous ne puissiez prouver.","To (embassy, consulate or office)":"À (ambassade, consulat ou bureau)","e.g. Visa Section, Embassy of ...":"p. ex. Section des visas, Ambassade de ...","Application type":"Type de demande","e.g. short-stay visa":"p. ex. visa de court séjour","What I do":"Mon activité","e.g. graphic designer":"p. ex. graphiste","Trip purpose and dates":"Objet et dates du voyage","e.g. client meetings, 3 weeks from 2027-03-01":"p. ex. rencontres clients, 3 semaines à partir du 2027-03-01","Letter text":"Texte de la lettre","Write the letter text":"Écrire le texte de la lettre"});
 Object.assign(FR,{"Evidence packs":"Dossiers de preuves","Single documents":"Documents séparés","Data for a spreadsheet":"Données pour un tableur","The single PDF puts the documents in one file, in order, with a contents page and page numbers, for portals that accept only one PDF. The ZIP keeps each document as its own file. Both contain only what you recorded in this app, with the payment proofs, statement photos, signed letters and work samples you attached. Check them yourself and ask the embassy or consulate what they require.":"Le PDF unique réunit les documents dans un seul fichier, dans l’ordre, avec sommaire et numéros de page, pour les portails qui n’acceptent qu’un seul PDF. Le ZIP garde chaque document dans son propre fichier. Les deux ne contiennent que ce que vous avez enregistré dans cette application, avec les preuves de paiement, photos de relevés, lettres signées et exemples de travail joints. Vérifiez-les vous-même et demandez à l’ambassade ou au consulat ce qu’ils exigent.","The statement of funds states the balance recorded in the app as of the end date (or today), month by month. The history of work activity shows invoices, payments and clients month by month. The statement of services and income lists the invoices you issued and the payments you received, per client. All are prepared by you from your own records, with a declaration line for your signature. None is an audit, a bank statement or an official certificate.":"Le relevé de fonds indique le solde enregistré dans l’application à la date de fin (ou aujourd’hui), mois par mois. L’historique d’activité montre les factures, paiements et clients mois par mois. Le relevé des services et revenus liste les factures émises et les paiements reçus, par client. Tous sont préparés par vous à partir de vos propres enregistrements, avec une ligne de déclaration à signer. Aucun n’est un audit, un relevé bancaire ou un certificat officiel."});
 Object.assign(FR,{"Appointment or filing date":"Date de rendez-vous ou de dépôt","Enter the date of your visa appointment, application or tax filing. The app shows how many days are left and whether your pack and backup are recent. The calendar button makes a file that adds reminders to your phone calendar (14 days before, 3 days before and on the day). The reminders come from your calendar app, not from this app.":"Saisissez la date de votre rendez-vous de visa, de votre demande ou de votre déclaration d’impôts. L’application indique les jours restants et si votre dossier et votre sauvegarde sont récents. Le bouton calendrier crée un fichier qui ajoute des rappels au calendrier de votre téléphone (14 jours avant, 3 jours avant et le jour même). Les rappels viennent de votre application calendrier, pas de celle-ci.","Date":"Date","What is it?":"De quoi s’agit-il ?","e.g. Visa appointment":"p. ex. Rendez-vous de visa","Add reminders to my calendar":"Ajouter des rappels à mon calendrier"});
 Object.assign(FR,{"Income consistency":"Régularité des revenus","Officers often look for steady income over time. This shows the money in per month from your records, the average per active month and the months with nothing recorded. It only reads your records.":"Les agents regardent souvent si le revenu est régulier dans le temps. Ceci montre l’argent reçu par mois d’après vos enregistrements, la moyenne par mois actif et les mois sans enregistrement. Cela ne fait que lire vos enregistrements.","Look back":"Période","3 months":"3 mois","6 months":"6 mois","12 months":"12 mois","Evidence check":"Contrôle des preuves","Before you export, this lists what is missing or weak in your records: payments without proof, invoices without work period or place, clients without a signed confirmation, bank statements without a photo. Fix what is real; leave out what you do not have. Never invent anything to fill a gap.":"Avant d’exporter, ceci liste ce qui manque ou est faible dans vos enregistrements : paiements sans preuve, factures sans période ni lieu de travail, clients sans confirmation signée, relevés sans photo. Corrigez ce qui est réel ; laissez de côté ce que vous n’avez pas. N’inventez jamais rien pour combler un vide."});
@@ -838,7 +866,7 @@ function renderInv(){renderOverdue();const cc=$('#icur').value;if(!S.invoices.le
   const tb=$('#cart-tot');tb.hidden=!cart.length;
   if(cart.length){const key=$('#tax').value,rate=TAX[key]||0,sub=cart.reduce((a,x)=>a+line(x,cc),0),tax=Math.round(sub*rate),total=sub+tax,wp=Math.min(Math.max(parseFloat($('#c-wh').value)||0,0),50),wh=Math.round(sub*wp/100),f=v=>fmt(v,UI,cc),r=(a,b,c)=>`<div${c?` class="${c}"`:''}><span>${a}</span><span>${b}</span></div>`;
    tb.innerHTML=r(tr('Subtotal'),f(sub))+r(taxLabel({tn:key,rate},UI),f(tax))+r(tr('Invoice total'),f(total),wh?'':'t')+(wh?r(tr(S.type==='company'?'Withholding tax':'Income tax deducted')+' ('+num(wp)+'%)','−'+f(wh))+r(tr('Amount payable'),f(total-wh),'t'):'')}
-  $('#inv').innerHTML=S.invoices.length?`<table class="h"><tr><th>${tr('Invoice')}</th><th>${tr('Client')}</th><th>${tr('Total')}</th><th>${tr('Balance')}</th><th>${tr('Due')}</th><th>${tr('Status')}</th><th></th></tr>${S.invoices.map(i=>{const b=payable(i)-paidOf(i.no),st=i.to?coStat(i,S):stat(i);return `<tr><td class="c-id" data-l="${tr('Invoice')}">${i.no}</td><td class="c-wide" data-l="${tr('Client')}"><span>${esc(i.cl)}<br><small>${esc(i.ref)} · ${when(i.ts)}</small></span></td><td class="c-n" data-l="${tr('Total')}">${fmt(i.total,UI,i.cur)}</td><td class="c-n" data-l="${tr('Balance')}">${fmt(Math.max(b,0),UI,i.cur)}</td><td class="c-n" data-l="${tr('Due')}">${i.due?when(i.due):'—'}</td><td class="c-st" data-l="${tr('Status')}"><span class="st ${st==='Paid'?'Paid':st==='Overdue'?'Overdue':''}">${tr(st)}</span>${i.rm&&b>0?`<br><small>${tr('Reminded')} ${when(i.rm)}</small>`:''}</td><td class="c-act"><button class="sec" data-edit="${i.no}">${tr('Edit')}</button>${b>0?`<button class="sec" data-pay="${i.no}">${tr('Record payment')}</button><button class="sec" data-pdf="${i.no}">${tr('Invoice PDF')}</button><button class="sec" data-rem="${i.no}">${tr('Remind')}</button>`:''}</td></tr>`}).join('')}</table>`:`<p class="empty">${tr('No invoices yet. Add lines and create the first one.')}</p>`;
+  $('#inv').innerHTML=S.invoices.length?`<table class="h"><tr><th>${tr('Invoice')}</th><th>${tr('Client')}</th><th>${tr('Total')}</th><th>${tr('Balance')}</th><th>${tr('Due')}</th><th>${tr('Status')}</th><th></th></tr>${S.invoices.map(i=>{const b=payable(i)-paidOf(i.no),st=i.to?coStat(i,S):stat(i);return `<tr><td class="c-id" data-l="${tr('Invoice')}">${i.no}</td><td class="c-wide" data-l="${tr('Client')}"><span>${esc(i.cl)}<br><small>${esc(i.ref)} · ${when(i.ts)}</small></span></td><td class="c-n" data-l="${tr('Total')}">${fmt(i.total,UI,i.cur)}</td><td class="c-n" data-l="${tr('Balance')}">${fmt(Math.max(b,0),UI,i.cur)}</td><td class="c-n" data-l="${tr('Due')}">${i.due?when(i.due):'—'}</td><td class="c-st" data-l="${tr('Status')}"><span class="st ${st==='Paid'?'Paid':st==='Overdue'?'Overdue':''}">${tr(st)}</span>${i.rm&&b>0?`<br><small>${tr('Reminded')} ${when(i.rm)}</small>`:''}</td><td class="c-act"><button class="sec" data-edit="${i.no}">${tr('Edit')}</button><button class="sec" data-rep="${i.no}">${tr('Repeat')}</button>${b>0?`<button class="sec" data-pay="${i.no}">${tr('Record payment')}</button><button class="sec" data-pdf="${i.no}">${tr('Invoice PDF')}</button><button class="sec" data-rem="${i.no}">${tr('Remind')}</button>`:''}</td></tr>`}).join('')}</table>`:`<p class="empty">${tr('No invoices yet. Add lines and create the first one.')}</p>`;
 }
 function renderRc(){
   const paid=S.receipts.filter(r=>r.status==='paid'),sum=f=>paid.reduce((a,r)=>a+f(r),0);
@@ -880,7 +908,7 @@ function renderBoard(){
   return `<div class="bal-c"><span class="cu">${esc(c)}</span><b>${f(a.total)}</b>${destRate(c)?`<small>${approx(a.total,c)}</small>`:''}<small>${tr('Payments received')}: ${f(a.rcIn)}</small><small>${tr('Cash in/Income')}: ${f(a.cashIn)} · ${tr('Cash out/Expenses')}: ${f(a.cashOut)}</small>${a.supOut?`<small>${tr('Paid to suppliers (non-cash)')}: ${f(a.supOut)}</small>`:''}<small>${tr('Still owed to you')}: ${f(owed)}</small></div>`}).join('')+tripBoard()+apptBoard()}
 $('#bal-pack').onclick=()=>{document.querySelector('#tabs [data-t=set]').click();const a=$('#ex-acc');a.open=true;setTimeout(()=>{a.scrollIntoView({behavior:SM,block:'start'});const b=$('#ex-pack');if(b)b.focus({preventScroll:true})},60)};
 $('#bal-tg').onclick=()=>{lsSet('slip.board',lsGet('slip.board')==='0'?'1':'0');renderBoard()};
-const all=()=>{renderBoard();renderTravel();renderBank();renderWork();renderConf();renderIncome();renderEvidence();renderInv();renderRc();renderSet();renderAcct();renderCash();renderPicker();renderBanner();renderCo();renderLicense();renderPin();editUi();renderMan();renderOffline();renderProof();renderExport();renderCloud();applyStatic()};
+const all=()=>{renderBoard();renderTravel();renderBank();renderWork();renderCover();renderConf();renderIncome();renderEvidence();renderInv();renderRc();renderSet();renderAcct();renderCash();renderPicker();renderBanner();renderCo();renderLicense();renderPin();editUi();renderMan();renderOffline();renderProof();renderExport();renderCloud();applyStatic()};
 document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tabs button').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.setAttribute('aria-current',x===b?'page':'false')});['inv','rc','cb','co','set'].forEach(t=>$('#t-'+t).hidden=t!==b.dataset.t);all()});
 document.querySelectorAll('#lang button').forEach(b=>b.onclick=()=>{UI=b.dataset.l;DB.ui=UI;save();document.querySelectorAll('#lang button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#ilang').value=UI;$('#msg').textContent='';$('#pmsg').textContent='';$('#rmsg').textContent='';renderChips();all()});
 const err=(el,t)=>{el.style.color='var(--bad)';el.textContent=t},okm=(el,t)=>{el.style.color='var(--ok)';el.textContent=t};
@@ -922,6 +950,18 @@ function startEdit(no){
  cart=i.items.map(x=>({...x}));$('#msg').textContent='';
  $('#co-det').open=true;
  openForm(true);renderInv();editUi();applyStatic()}
+
+/* Repeat: a new invoice for a regular client, copied from an earlier one. The date is today, the work period is left empty (it must describe the new work). */
+function repeatInvoice(no){const i=S.invoices.find(x=>x.no===no);if(!i)return;
+ if(editNo!==null)endEdit();
+ const set=(k,v)=>{$('#'+k).value=v==null?'':v},gap=Math.max(0,Math.round(((i.due||i.ts)-i.ts)/864e5)),now=Date.now();
+ set('cl',i.cl);set('clem',i.clem);set('ref',i.ref);set('ilang',i.lang||'en');set('idate',ymd(now));set('idue',ymd(now+gap*864e5));
+ set('c-rc',i.rc);set('c-niu',i.niu);set('c-ad',i.cad);set('c-po','');set('c-note',i.note);set('c-wh',i.whPct||'');
+ set('icur',i.cur||'CAD');if(i.tn)set('tax',i.tn);set('sv-a','');set('sv-b','');set('sv-pl',i.sp);set('sv-dl','');set('c-ph',i.cph);
+ renderPicker();set('cl-pick',DB.accounts[i.to]?i.to:'');
+ cart=i.items.map(x=>({...x}));
+ openForm(true);renderInv();applyStatic();
+ okm($('#msg'),q('Copied from '+no+'. Check the lines, the amounts and the dates. Add the work period and place for this new work before you create the invoice.','Copié depuis '+no+'. Vérifiez les lignes, les montants et les dates. Ajoutez la période et le lieu de ce nouveau travail avant de créer la facture.'))}
 function endEdit(){
  if(editNo===null)return;
  editNo=null;editLock=false;
@@ -974,7 +1014,7 @@ function closeHonest(){$('#honest').classList.remove('on')}
 $('#hn-ok').onclick=()=>{lsSet('slip.honest','1');closeHonest();$('#mk').onclick()};
 $('#hn-no').onclick=closeHonest;
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#honest').classList.contains('on'))closeHonest()});
-$('#inv').onclick=e=>{if(e.target.dataset.rem)return remind(e.target.dataset.rem);if(e.target.dataset.edit)return startEdit(e.target.dataset.edit);if(e.target.dataset.pdf)return invoicePdf(e.target.dataset.pdf);const n=e.target.dataset.pay;if(!n)return;payInv=n;const i=S.invoices.find(x=>x.no===n);
+$('#inv').onclick=e=>{if(e.target.dataset.rep)return repeatInvoice(e.target.dataset.rep);if(e.target.dataset.rem)return remind(e.target.dataset.rem);if(e.target.dataset.edit)return startEdit(e.target.dataset.edit);if(e.target.dataset.pdf)return invoicePdf(e.target.dataset.pdf);const n=e.target.dataset.pay;if(!n)return;payInv=n;const i=S.invoices.find(x=>x.no===n);
  $('#pay').hidden=false;$('#pay-t').textContent=tr('Record payment')+' · '+n;const cu=i.cur||'CAD';$('#pamt').step=cu==='XAF'?1:0.01;$('#pamt').value=((payable(i)-paidOf(n))/mu(cu)).toFixed(EXP[cu]);[...$('#gw').options].forEach(o=>{o.hidden=o.disabled=!GW[o.value].cur.includes(cu)});if($('#gw').selectedOptions[0].disabled)$('#gw').value=[...$('#gw').options].find(o=>!o.disabled).value;$('#pdate').value=today();$('#pmsg').textContent='';$('#pay').scrollIntoView({behavior:SM,block:'start'})};
 async function payNow(i,o,bk=S){
  const bal=payable(i)-paidOf(i.no,bk),amt=Math.round(parseFloat($(o.amt).value)*mu(i.cur)),pd=$(o.date).value,msg=$(o.msg);
@@ -1046,9 +1086,49 @@ function rcCode(r,bk=S){return vfFmt(sha256(['RCPT',r.no,r.inv,r.ts,r.amount,r.t
 function vfCheck(no,code,bk=S){no=String(no).trim().toUpperCase();const c=String(code).toUpperCase().replace(/[^0-9A-F]/g,'').slice(0,12);
  if(!no||c.length<12)return 'incomplete';
  const i=bk.invoices.find(x=>x.no.toUpperCase()===no),r=!i&&bk.receipts.find(x=>x.no.toUpperCase()===no);
- if(!i&&!r){const f=/^FND_(\d{4}-\d{2}-\d{2})_([A-Z]{3}|ALL)$/.exec(no);if(f&&bk===S)return vfFmt(c)===fndCode(f[1],f[2]==='ALL'?'':f[2],bk)?'ok':'bad';const ac=/^ACT_(ALL|\d{4}-\d{2}-\d{2})_(ALL|\d{4}-\d{2}-\d{2})_([A-Z]{3}|ALL)$/.exec(no);if(ac&&bk===S){const rg={from:ac[1]==='ALL'?'':ac[1],to:ac[2]==='ALL'?'':ac[2],cur:ac[3]==='ALL'?'':ac[3]};return vfFmt(c)===actCode(rg,bk)?'ok':'bad'}if(no==='WRK_ALL'&&bk===S)return vfFmt(c)===wrkCode(bk)?'ok':'bad';const cn=/^CNF_([A-Z0-9-]+)_(ALL|\d{4}-\d{2}-\d{2})_(ALL|\d{4}-\d{2}-\d{2})_([A-Z]{3}|ALL)$/.exec(no);if(cn&&bk===S){const nm=cfClients().find(x=>cfSlug(x)===cn[1]);if(!nm)return 'none';return vfFmt(c)===cfCode({from:cn[2]==='ALL'?'':cn[2],to:cn[3]==='ALL'?'':cn[3],cur:cn[4]==='ALL'?'':cn[4]},nm,bk)?'ok':'bad'}const mm=/^STM_(ALL|\d{4}-\d{2}-\d{2})_(ALL|\d{4}-\d{2}-\d{2})_([A-Z]{3}|ALL)$/.exec(no);if(!mm||bk!==S)return 'none';const rg={from:mm[1]==='ALL'?'':mm[1],to:mm[2]==='ALL'?'':mm[2],cur:mm[3]==='ALL'?'':mm[3]};return vfFmt(c)===stmCode(rg,bk)?'ok':'bad'}
+ if(!i&&!r){const f=/^FND_(\d{4}-\d{2}-\d{2})_([A-Z]{3}|ALL)$/.exec(no);if(f&&bk===S)return vfFmt(c)===fndCode(f[1],f[2]==='ALL'?'':f[2],bk)?'ok':'bad';const ac=/^ACT_(ALL|\d{4}-\d{2}-\d{2})_(ALL|\d{4}-\d{2}-\d{2})_([A-Z]{3}|ALL)$/.exec(no);if(ac&&bk===S){const rg={from:ac[1]==='ALL'?'':ac[1],to:ac[2]==='ALL'?'':ac[2],cur:ac[3]==='ALL'?'':ac[3]};return vfFmt(c)===actCode(rg,bk)?'ok':'bad'}if(no==='COV_ALL'&&bk===S)return vfFmt(c)===cvCode(bk)?'ok':'bad';if(no==='WRK_ALL'&&bk===S)return vfFmt(c)===wrkCode(bk)?'ok':'bad';const tx=/^TAX_(ALL|\d{4}-\d{2}-\d{2})_(ALL|\d{4}-\d{2}-\d{2})_([A-Z]{3}|ALL)$/.exec(no);if(tx&&bk===S){return vfFmt(c)===taxCode({from:tx[1]==='ALL'?'':tx[1],to:tx[2]==='ALL'?'':tx[2],cur:tx[3]==='ALL'?'':tx[3]},bk)?'ok':'bad'}const cn=/^CNF_([A-Z0-9-]+)_(ALL|\d{4}-\d{2}-\d{2})_(ALL|\d{4}-\d{2}-\d{2})_([A-Z]{3}|ALL)$/.exec(no);if(cn&&bk===S){const nm=cfClients().find(x=>cfSlug(x)===cn[1]);if(!nm)return 'none';return vfFmt(c)===cfCode({from:cn[2]==='ALL'?'':cn[2],to:cn[3]==='ALL'?'':cn[3],cur:cn[4]==='ALL'?'':cn[4]},nm,bk)?'ok':'bad'}const mm=/^STM_(ALL|\d{4}-\d{2}-\d{2})_(ALL|\d{4}-\d{2}-\d{2})_([A-Z]{3}|ALL)$/.exec(no);if(!mm||bk!==S)return 'none';const rg={from:mm[1]==='ALL'?'':mm[1],to:mm[2]==='ALL'?'':mm[2],cur:mm[3]==='ALL'?'':mm[3]};return vfFmt(c)===stmCode(rg,bk)?'ok':'bad'}
  return vfFmt(c)===(i?invCode(i,bk):rcCode(r,bk))?'ok':'bad'}
-const vfLine=(d,code,L,M,y)=>{d.setFontSize(8);d.setTextColor(122,98,112);d.text(pdfSafe(tr('Verification code',L))+': '+code,M,y)};
+
+/* ===== QR code generator (byte mode, error correction M, versions 1-10), written for this app so it works offline =====
+   Follows the QR Code Model 2 standard; checked by decoding the output with an independent reader. */
+function qrMatrix(text){
+ const bytes=[...new TextEncoder().encode(String(text))],ECC=[10,16,26,18,24,16,18,22,22,26],NB=[1,1,1,2,2,4,4,4,5,5];
+ const raw=v=>{let r=(16*v+128)*v+64;if(v>=2){const n=Math.floor(v/7)+2;r-=(25*n-10)*n-55;if(v>=7)r-=36}return r};
+ let ver=0;for(let v=1;v<=10;v++){const cap=Math.floor(raw(v)/8)-ECC[v-1]*NB[v-1];if(4+(v<10?8:16)+8*bytes.length<=cap*8){ver=v;break}}
+ if(!ver)return null;
+ const dcw=Math.floor(raw(ver)/8)-ECC[ver-1]*NB[ver-1],bits=[],put=(x,n)=>{for(let i=n-1;i>=0;i--)bits.push((x>>>i)&1)};
+ put(4,4);put(bytes.length,ver<10?8:16);bytes.forEach(b=>put(b,8));put(0,Math.min(4,dcw*8-bits.length));while(bits.length%8)bits.push(0);
+ for(let p=0xEC;bits.length<dcw*8;p^=0xEC^0x11)put(p,8);
+ const data=[];for(let i=0;i<bits.length;i+=8)data.push(parseInt(bits.slice(i,i+8).join(''),2));
+ const mul=(x,y)=>{let z=0;for(let i=7;i>=0;i--){z=(z<<1)^((z>>>7)*0x11D);z^=((y>>>i)&1)*x}return z};
+ const div=n=>{const r=Array(n-1).fill(0).concat([1]);let root=1;for(let i=0;i<n;i++){for(let j=0;j<r.length;j++){r[j]=mul(r[j],root);if(j+1<r.length)r[j]^=r[j+1]}root=mul(root,2)}return r};
+ const rem=(d,dv)=>{const r=dv.map(()=>0);d.forEach(b=>{const f=b^r.shift();r.push(0);dv.forEach((c,i)=>{r[i]^=mul(c,f)})});return r};
+ const nb=NB[ver-1],el=ECC[ver-1],rc=Math.floor(raw(ver)/8),ns=nb-rc%nb,sl=Math.floor(rc/nb),dv=div(el),blocks=[];
+ for(let i=0,k=0;i<nb;i++){const dat=data.slice(k,k+sl-el+(i<ns?0:1));k+=dat.length;const e=rem(dat,dv);if(i<ns)dat.push(0);blocks.push(dat.concat(e))}
+ const all=[];for(let i=0;i<blocks[0].length;i++)blocks.forEach((b,j)=>{if(i!==sl-el||j>=ns)all.push(b[i])});
+ const n=ver*4+17,M=Array.from({length:n},()=>Array(n).fill(false)),F=Array.from({length:n},()=>Array(n).fill(false));
+ const set=(x,y,v)=>{M[y][x]=v;F[y][x]=true};
+ for(let i=0;i<n;i++){set(6,i,i%2===0);set(i,6,i%2===0)}
+ [[3,3],[n-4,3],[3,n-4]].forEach(([cx,cy])=>{for(let dy=-4;dy<=4;dy++)for(let dx=-4;dx<=4;dx++){const d=Math.max(Math.abs(dx),Math.abs(dy)),x=cx+dx,y=cy+dy;if(x>=0&&x<n&&y>=0&&y<n)set(x,y,d!==2&&d!==4)}});
+ const na=ver===1?0:Math.floor(ver/7)+2,ap=[];if(na){const step=Math.ceil((ver*4+4)/(na*2-2))*2;ap.push(6);for(let p=n-7;ap.length<na;p-=step)ap.splice(1,0,p)}
+ ap.forEach((cx,i)=>ap.forEach((cy,j)=>{if((i===0&&j===0)||(i===0&&j===na-1)||(i===na-1&&j===0))return;for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)set(cx+dx,cy+dy,Math.max(Math.abs(dx),Math.abs(dy))!==1)}));
+ const fmt=mask=>{const d=(0<<3)|mask;let r=d;for(let i=0;i<10;i++)r=(r<<1)^((r>>>9)*0x537);const b=((d<<10)|r)^0x5412,g=i=>((b>>>i)&1)===1;
+  for(let i=0;i<=5;i++)set(8,i,g(i));set(8,7,g(6));set(8,8,g(7));set(7,8,g(8));for(let i=9;i<15;i++)set(14-i,8,g(i));
+  for(let i=0;i<8;i++)set(n-1-i,8,g(i));for(let i=8;i<15;i++)set(8,n-15+i,g(i));set(8,n-8,true)};
+ fmt(0);
+ if(ver>=7){let r=ver;for(let i=0;i<12;i++)r=(r<<1)^((r>>>11)*0x1F25);const b=(ver<<12)|r;for(let i=0;i<18;i++){const c=((b>>>i)&1)===1,a=n-11+i%3,k=Math.floor(i/3);set(a,k,c);set(k,a,c)}}
+ let k=0;for(let right=n-1;right>=1;right-=2){if(right===6)right=5;for(let v=0;v<n;v++)for(let j=0;j<2;j++){const x=right-j,y=((right+1)&2)===0?n-1-v:v;if(!F[y][x]&&k<all.length*8){M[y][x]=((all[k>>>3]>>>(7-(k&7)))&1)===1;k++}}}
+ const MK=[(x,y)=>(x+y)%2===0,(x,y)=>y%2===0,(x,y)=>x%3===0,(x,y)=>(x+y)%3===0,(x,y)=>(Math.floor(x/3)+Math.floor(y/2))%2===0,(x,y)=>x*y%2+x*y%3===0,(x,y)=>(x*y%2+x*y%3)%2===0,(x,y)=>((x+y)%2+x*y%3)%2===0];
+ const apply=m=>{for(let y=0;y<n;y++)for(let x=0;x<n;x++)if(!F[y][x]&&MK[m](x,y))M[y][x]=!M[y][x]};
+ const pen=()=>{let p=0;for(let a=0;a<2;a++)for(let i=0;i<n;i++){let run=1;for(let j=1;j<n;j++){const c=a?M[j][i]:M[i][j],pc=a?M[j-1][i]:M[i][j-1];if(c===pc){run++;if(run===5)p+=3;else if(run>5)p++}else run=1}}
+  for(let y=0;y<n-1;y++)for(let x=0;x<n-1;x++)if(M[y][x]===M[y][x+1]&&M[y][x]===M[y+1][x]&&M[y][x]===M[y+1][x+1])p+=3;
+  let dark=0;M.forEach(r=>r.forEach(c=>{if(c)dark++}));p+=Math.floor(Math.abs(dark*20-n*n*10)/(n*n))*10;return p};
+ let best=0,bp=1e9;for(let m=0;m<8;m++){apply(m);fmt(m);const p=pen();if(p<bp){bp=p;best=m}apply(m)}
+ apply(best);fmt(best);return M}
+function qrDraw(d,text,x,y,size){const m=qrMatrix(text);if(!m)return false;const k=size/(m.length+2);d.setFillColor(255,255,255);d.rect(x,y,size,size,'F');d.setFillColor(0,0,0);
+ m.forEach((row,j)=>row.forEach((c,i)=>{if(c)d.rect(x+(i+1)*k,y+(j+1)*k,k,k,'F')}));return true}
+const qrText=(no,code)=>'GGV|'+no+'|'+code;
+const vfLine=(d,code,L,M,y,no)=>{d.setFontSize(8);d.setTextColor(122,98,112);d.text(pdfSafe(tr('Verification code',L))+': '+code,M,y);if(no)qrDraw(d,qrText(no,code),523-46,y-6,46)};
 const pdfSafe=x=>String(x).replace(/[\u00a0\u202f\u2009\u2007]/g,' ').replace(/[−–]/g,'-').replace(/•/g,'*').replace(/↔/g,'-').replace(/[’‘]/g,"'").replace(/[“”]/g,'"').replace(/[^\x00-\xff]/g,'?');
 const hexRgb=h=>{const n=parseInt(String(h).replace('#',''),16);return[(n>>16)&255,(n>>8)&255,n&255]};
 function svLines(i,L){const o=[];if(i.sa||i.sb)o.push([tr('Work period',L),(i.sa?when(dt(i.sa),L):'...')+' - '+(i.sb?when(dt(i.sb),L):'...')]);if(i.sp)o.push([tr('Place of work',L),i.sp]);if(i.sd)o.push([tr('Deliverables or work done',L),i.sd]);return o}
@@ -1090,7 +1170,7 @@ function buildPdf(r,bk=S){
  const block=(label,text)=>{const ls=d.splitTextToSize(pdfSafe(text),R-M);page(ls.length*11+22);mute();F('normal',8);d.text(label,M,y);y+=11;ink();F('normal',9);d.text(ls,M,y);y+=ls.length*11+8};
  if(r.bal>0&&m.pdet)block(T('Payment details'),m.pdet);
  const nt=[i.note,m.terms].filter(Boolean).join('\n');if(nt)block(T('Notes'),nt);
- page(14);mute();F('normal',8);d.text(T('Thank you. Keep this receipt for your records.'),M,y);y+=12;vfLine(d,rcCode(r,bk),L,M,y);
+ page(54);mute();F('normal',8);d.text(T('Thank you. Keep this receipt for your records.'),M,y);y+=12;vfLine(d,rcCode(r,bk),L,M,y,r.no);
  const pf=r.pinc&&proofOf(r,bk);
  if(pf){d.addPage();y=48;ink();F('bold',13);d.text(T('Proof of payment')+' - '+pdfSafe(r.no),M,y);y+=20;
   try{const pr=d.getImageProperties(pf.img),k=Math.min((R-M)/pr.width,700/pr.height);d.addImage(pf.img,'JPEG',M,y,pr.width*k,pr.height*k)}catch(e){}}
@@ -1136,7 +1216,7 @@ function buildInvoicePdf(i,bk=S){
  const block=(label,text)=>{const ls=d.splitTextToSize(pdfSafe(text),R-M);page(ls.length*11+22);mute();F('normal',8);d.text(label,M,y);y+=11;ink();F('normal',9);d.text(ls,M,y);y+=ls.length*11+8};
  if(m.pdet)block(T('Payment details'),m.pdet);
  const nt=[i.note,m.terms].filter(Boolean).join('\n');if(nt)block(T('Notes'),nt);
- page(14);mute();F('normal',8);if(due>0)d.text(T('Please pay by the due date and quote the invoice number with your payment.'),M,y);else y-=12;y+=12;vfLine(d,invCode(i,bk),L,M,y);
+ page(54);mute();F('normal',8);if(due>0)d.text(T('Please pay by the due date and quote the invoice number with your payment.'),M,y);else y-=12;y+=12;vfLine(d,invCode(i,bk),L,M,y,i.no);
  return d}
 async function invoicePdf(no){
  const i=S.invoices.find(x=>x.no===no);if(!i)return;
@@ -1188,9 +1268,13 @@ const pdfFile=(r,bk=S)=>{const d=buildPdf(r,bk);return d?new File([d.output('blo
 const noPdfText=()=>(window.NativeBridge||window.Capacitor)?q('The PDF tool did not load. Restart the app and try again.','L’outil PDF ne s’est pas chargé. Redémarrez l’application et réessayez.'):q('The PDF tool is not saved on this device yet. Open this page once with internet, then try again.','L’outil PDF n’est pas encore enregistré sur cet appareil. Ouvrez cette page une fois avec internet, puis réessayez.');
 const noPdf=()=>err($('#rmsg'),noPdfText());
 async function fileB64(f){const u=new Uint8Array(await f.arrayBuffer());let s='';for(let i=0;i<u.length;i+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(s)}
+const canShareFiles=()=>{try{return !window.NativeBridge&&!!navigator.canShare&&navigator.canShare({files:[new File(['x'],'x.pdf',{type:'application/pdf'})]})}catch(e){return false}};
+const shareOn=()=>canShareFiles()&&lsGet('slip.share')==='1';
 async function saveFile(f){
  if(window.NativeBridge){try{const r=await window.NativeBridge.saveShare(await fileB64(f),f.name,f.name);return r==='cancel'?'declined':true}catch(e){return false}}
  try{const dl=window.claude?await claude.use('downloads'):null;if(dl){await dl.save({filename:f.name,data:f});return true}}catch(e){if(e&&e.code==='declined')return 'declined'}
+ /* browser share sheet (WhatsApp, email...) when the person chose to share and the browser can share files */
+ if(shareOn()){try{await navigator.share({files:[f],title:f.name});return true}catch(e){if(e&&e.name==='AbortError')return 'declined'}}
  /* ordinary browser: download the file */
  try{const u=URL.createObjectURL(f),a=document.createElement('a');a.href=u;a.download=f.name;a.rel='noopener';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000);return true}catch(e){return false}}
 $('#print').onclick=async()=>{const f=pdfFile(S.receipts.find(x=>x.no===S.sel));if(!f)return noPdf();const ok=await saveFile(f);
@@ -1370,7 +1454,7 @@ function renderCash(){
  const A=acctTotals(cur,fromTs,toTs),rw=(l,v,c)=>`<div class="rw"><span>${l}</span><span class="${c||''}">${v}</span></div>`;
  $('#cb-acct').innerHTML=`<h2 style="margin-top:18px">${tr('Account total')}</h2>`+(ff?rw(tr('Opening balance'),fmt(A.opening,UI,cur)):'')+rw(tr('Receipts (bank, mobile money, card), net of fees'),'+'+fmt(A.rcIn,UI,cur),'in')+rw(tr('Cash in/Income'),'+'+fmt(A.cashIn,UI,cur),'in')+rw(tr('Cash out/Expenses'),'−'+fmt(A.cashOut,UI,cur),'out')+(A.supOut?rw(tr('Paid to suppliers (non-cash)'),'−'+fmt(A.supOut,UI,cur),'out'):'')+`<div class="rw tot"><span>${tr('Account total')}</span><span>${fmt(A.total,UI,cur)}</span></div><p class="hint">${tr('Cash received for invoices is counted once, in the cash book.')}</p>`;
  $('#cb-list').innerHTML=inP.length?`<table class="h"><tr><th>${tr('Entry')}</th><th>${tr('Date')}</th><th>${tr('Details')}</th><th>${tr('Cash in/Income')}</th><th>${tr('Cash out/Expenses')}</th><th>${tr('Balance')}</th><th></th></tr>${inP.slice().reverse().map(({e,run})=>{const meta=[e.party,e.ref,e.inv,e.rcpt].filter(Boolean).map(esc).join(' · '),v=e.void,w=x=>v?`<s>${x}</s>`:x;
-  return `<tr><td class="c-id" data-l="${tr('Entry')}">${e.id}</td><td class="c-st" data-l="${tr('Date')}">${when(e.ts)}</td><td class="c-wide" data-l="${tr('Details')}"><span>${w('<b>'+tr(e.cat)+'</b>')}${meta?'<br><small>'+meta+'</small>':''}${v?'<br><small>'+tr('Voided')+'</small>':''}</span></td><td data-l="${tr('Cash in/Income')}" class="in c-n">${e.kind==='in'?w(fmt(e.amount,UI,cur)):''}</td><td data-l="${tr('Cash out/Expenses')}" class="out c-n">${e.kind==='out'?w(fmt(e.amount,UI,cur)):''}</td><td class="c-n" data-l="${tr('Balance')}">${fmt(run,UI,cur)}</td><td class="c-act"><button class="sec" data-pdf="${e.id}">PDF</button>${v?'':e.rcpt?`<small>${tr('Linked')}</small>`:`<button class="sec" data-v="${e.id}">${cbArm===e.id?q('Tap again to void','Touchez encore pour annuler'):tr('Void')}</button>`}</td></tr>`}).join('')}</table>`:`<p class="empty">${q('No cash entries for this period.','Aucune opération de caisse pour cette période.')}</p>`;
+  return `<tr><td class="c-id" data-l="${tr('Entry')}">${e.id}</td><td class="c-st" data-l="${tr('Date')}">${when(e.ts)}</td><td class="c-wide" data-l="${tr('Details')}"><span>${w('<b>'+tr(e.cat)+'</b>')}${meta?'<br><small>'+meta+'</small>':''}${v?'<br><small>'+tr('Voided')+'</small>':''}</span></td><td data-l="${tr('Cash in/Income')}" class="in c-n">${e.kind==='in'?w(fmt(e.amount,UI,cur)):''}</td><td data-l="${tr('Cash out/Expenses')}" class="out c-n">${e.kind==='out'?w(fmt(e.amount,UI,cur)):''}</td><td class="c-n" data-l="${tr('Balance')}">${fmt(run,UI,cur)}</td><td class="c-act"><button class="sec" data-pdf="${e.id}">PDF</button>${v?'':cashPhotoBtn(e)}${v?'':e.rcpt?`<small>${tr('Linked')}</small>`:`<button class="sec" data-v="${e.id}">${cbArm===e.id?q('Tap again to void','Touchez encore pour annuler'):tr('Void')}</button>`}</td></tr>`}).join('')}</table>`:`<p class="empty">${q('No cash entries for this period.','Aucune opération de caisse pour cette période.')}</p>`;
 }
 document.querySelectorAll('#cb-seg button').forEach(b=>b.onclick=()=>{cbMode=b.dataset.m;cbLast=null;$('#cb-msg').textContent='';$('#cb-amt').value='';if(cbMode==='inv')cbFillInv();else{$('#cb-from').value=''}renderCash();applyStatic()});
 $('#cb-inv').onchange=cbFillInv;
@@ -1387,7 +1471,25 @@ $('#cb-go').onclick=async()=>{
  if(cbMode==='out'&&amt>cbBal(cur,dt(d)))return err(msg,q('Cash out is more than the cash in the book on that date (balance '+fmt(cbBal(cur,dt(d)),UI,cur)+').','La sortie dépasse les espèces du livre à cette date (solde '+fmt(cbBal(cur,dt(d)),UI,cur)+').'));
  addCash(S,{kind:cbMode,amount:amt,cur,cat:$('#cb-cat').value,party:$('#cb-from').value.trim(),note:$('#cb-ref').value.trim(),ts:dt(d)});save();cbLast=S.cash[S.cash.length-1].id;cbLastAcct=DB.act;
  $('#cb-amt').value='';$('#cb-from').value='';$('#cb-ref').value='';$('#cb-fcur').value=cur;okm(msg,q('Entry recorded. You can download or send the PDF below.','Opération enregistrée. Vous pouvez télécharger ou envoyer le PDF ci-dessous.'));renderCash();applyStatic()};
-$('#cb-list').onclick=async e=>{const pid=e.target.dataset.pdf;if(pid){await cbPdf(S.cash.find(x=>x.id===pid),'save');return}const id=e.target.dataset.v;if(!id)return;
+
+/* Receipt photos for cash book entries (expenses and other cash): same store as payment proofs */
+const cashKey=e=>S.id+'|CASH|'+e.id;
+const cashPhotoBtn=e=>PROOFS.get(cashKey(e))?`<button class="sec" data-cpv="${e.id}">${tr('View photo')}</button><button class="sec" data-cpr="${e.id}" aria-label="${tr('Remove photo')}">×</button>`:`<button class="sec" data-cpa="${e.id}">${tr('Photo')}</button>`;
+let cashPhotoFor=null;
+$('#vf-no').addEventListener('input',()=>{const m=/^GGV\|([^|]+)\|([0-9A-Fa-f-]+)$/.exec($('#vf-no').value.trim());if(m){$('#vf-no').value=m[1];$('#vf-code').value=m[2]}});
+
+/* Scan the QR code printed on a document (only where the phone browser can read QR codes itself) */
+(()=>{const btn=$('#vf-scan');if(!('BarcodeDetector' in window)||!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)return;btn.hidden=false;let stream=null,timer=null;
+ const stop=()=>{clearInterval(timer);if(stream)stream.getTracks().forEach(t=>t.stop());stream=null;$('#vf-vid').hidden=true;btn.textContent=tr('Scan the QR code')};
+ btn.onclick=async()=>{if(stream)return stop();
+  try{const det=new BarcodeDetector({formats:['qr_code']});stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});const v=$('#vf-vid');v.srcObject=stream;v.hidden=false;await v.play();btn.textContent=tr('Stop scanning');
+   timer=setInterval(async()=>{try{const r=await det.detect(v),m=r[0]&&/^GGV\|([^|]+)\|([0-9A-Fa-f-]+)$/.exec(r[0].rawValue);if(m){$('#vf-no').value=m[1];$('#vf-code').value=m[2];stop();$('#vf-go').click()}}catch(e){}},400)}
+  catch(e){stop();err($('#vf-msg'),q('The camera could not be opened. You can type the number and the code instead.','La caméra n’a pas pu s’ouvrir. Vous pouvez saisir le numéro et le code.'))}}})();
+$('#cb-file').onchange=async ev=>{const f=ev.target.files[0];ev.target.value='';const e=S.cash.find(x=>x.id===cashPhotoFor),m=$('#cb-pmsg');if(!f||!e)return;
+ try{const img=await shrinkImage(f),v={img,ts:Date.now()},k=cashKey(e);await proofPut(k,v);PROOFS.set(k,v);renderCash();okm(m,q('Photo saved with '+e.id+'.','Photo enregistrée avec '+e.id+'.'))}
+ catch(x){err(m,q('Choose a photo or screenshot (an image file).','Choisissez une photo ou une capture d’écran (un fichier image).'))}};
+const cashPhotos=r=>pick(r).cash.filter(e=>!e.void&&PROOFS.get(cashKey(e))).sort((a,b)=>a.ts-b.ts);
+$('#cb-list').onclick=async e=>{const t=e.target.dataset;if(t.cpa){cashPhotoFor=t.cpa;$('#cb-file').click();return}if(t.cpv){const p=PROOFS.get(cashKey(S.cash.find(x=>x.id===t.cpv)));if(p){$('#pv-img').src=p.img;$('#pview').classList.add('on')}return}if(t.cpr){const en=S.cash.find(x=>x.id===t.cpr);if(en){const k=cashKey(en);PROOFS.delete(k);try{await proofDel(k)}catch(x){}renderCash()}return}const pid=e.target.dataset.pdf;if(pid){await cbPdf(S.cash.find(x=>x.id===pid),'save');return}const id=e.target.dataset.v;if(!id)return;
  if(cbArm!==id){cbArm=id;renderCash();applyStatic();setTimeout(()=>{if(cbArm===id){cbArm=null;renderCash();applyStatic()}},5000);return}
  const en=S.cash.find(x=>x.id===id);if(en){en.void=true;en.vat=Date.now()}cbArm=null;save();renderCash();applyStatic()};
 let cbDiff=0;
@@ -1757,6 +1859,7 @@ $('#ex-pack').onclick=async()=>{const msg=$('#ex-msg'),r=exRange();
   files.push({name:'01-statement-of-funds.pdf',data:await pdfBytes(buildFundsPdf(asOf,r.cur))});list.push(['01-statement-of-funds.pdf',tr('Statement of funds')+' ('+tr('As of')+' '+asOf+')']);
   files.push({name:'02-work-activity-history.pdf',data:await pdfBytes(buildActivityPdf(r))});list.push(['02-work-activity-history.pdf',tr('History of work activity')]);
   files.push({name:'03-statement.pdf',data:await pdfBytes(buildStatementPdf(r))});list.push(['03-statement.pdf',tr('Statement of services and income')]);
+  if((CV().bd||'').trim()){files.push({name:'00-letter.pdf',data:await pdfBytes(buildCoverLetterPdf())});list.push(['00-letter.pdf',tr('Cover letter')])}
   if(WK().length){files.push({name:'04-work-samples.pdf',data:await pdfBytes(buildWorkPdf())});list.push(['04-work-samples.pdf',tr('Work samples')])}
   for(const i of invs.slice().sort((a,b)=>a.ts-b.ts)){files.push({name:'invoices/'+i.no+'.pdf',data:await pdfBytes(buildInvoicePdf(i))})}
   if(invs.length)list.push(['invoices/ ('+invs.length+')',tr('One PDF per invoice, with work period and place')]);
@@ -1766,6 +1869,8 @@ $('#ex-pack').onclick=async()=>{const msg=$('#ex-msg'),r=exRange();
   if(np)list.push(['proofs/ ('+np+')',tr('Photos or screenshots of the payment confirmations')]);
   let nc=0;for(const x of cfPhotos(r)){files.push({name:'confirmations/'+cfSlug(x.n)+'.jpg',data:dataUrlBytes(x.p.img)});nc++}
   if(nc)list.push(['confirmations/ ('+nc+')',tr('Signed client confirmation letters')]);
+  let ne=0;for(const e of cashPhotos(r)){files.push({name:'expenses/'+e.id+'.jpg',data:dataUrlBytes(PROOFS.get(cashKey(e)).img)});ne++}
+  if(ne)list.push(['expenses/ ('+ne+')',tr('Photos of expense and cash receipts')]);
   let nb=0;for(const b of bankList(asOf,r.cur)){const pf=PROOFS.get(bsKey(b));if(pf){files.push({name:'bank/'+(b.t+'_'+b.a).replace(/[^A-Za-z0-9._-]+/g,'-')+'_'+(++nb)+'.jpg',data:dataUrlBytes(pf.img)})}}
   if(nb)list.push(['bank/ ('+nb+')',tr('Photos of the bank and mobile-money statements')]);
   files.push({name:'data/invoices.csv',data:csvBytes(invRows(invs))},{name:'data/receipts.csv',data:csvBytes(rcRows(rcs))});list.push(['data/*.csv',tr('Invoice and receipt lists for a spreadsheet')]);
@@ -1796,6 +1901,7 @@ $('#ex-one').onclick=async()=>{const msg=$('#ex-msg'),r=exRange();
   await add(tr('Statement of funds')+' ('+tr('As of')+' '+asOf+')',[{bytes:await pdfBytes(buildFundsPdf(asOf,r.cur))}]);
   await add(tr('History of work activity'),[{bytes:await pdfBytes(buildActivityPdf(r))}]);
   await add(tr('Statement of services and income'),[{bytes:await pdfBytes(buildStatementPdf(r))}]);
+  if((CV().bd||'').trim())await add(tr('Cover letter'),[{bytes:await pdfBytes(buildCoverLetterPdf())}]);
   if(WK().length)await add(tr('Work samples'),[{bytes:await pdfBytes(buildWorkPdf())}]);
   const iv=[];for(const i of invs.slice().sort((a,b)=>a.ts-b.ts))iv.push({bytes:await pdfBytes(buildInvoicePdf(i))});
   if(iv.length)await add(tr('Invoices')+' ('+iv.length+')',iv);
@@ -1804,6 +1910,8 @@ $('#ex-one').onclick=async()=>{const msg=$('#ex-msg'),r=exRange();
   if(pr.length)await add(tr('Photos or screenshots of the payment confirmations')+' ('+pr.length+')',pr);
   const cp=cfPhotos(r).map(x=>({img:dataUrlBytes(x.p.img),label:tr('Client confirmation')+': '+x.n}));
   if(cp.length)await add(tr('Signed client confirmation letters')+' ('+cp.length+')',cp);
+  const ep=cashPhotos(r).map(e=>({img:dataUrlBytes(PROOFS.get(cashKey(e)).img),label:tr('Photos of expense and cash receipts')+': '+e.id+' · '+tr(e.cat)+' · '+ymd(e.ts)}));
+  if(ep.length)await add(tr('Photos of expense and cash receipts')+' ('+ep.length+')',ep);
   const bp=[];for(const b of bankList(asOf,r.cur)){const pf=PROOFS.get(bsKey(b));if(pf)bp.push({img:dataUrlBytes(pf.img),label:tr('Bank and mobile-money statements')+': '+b.a+' ('+b.f+' - '+b.t+')'})}
   if(bp.length)await add(tr('Photos of the bank and mobile-money statements')+' ('+bp.length+')',bp);
   const body=await mergePdfs(parts),mk=off=>groups.map(g=>[q('Pages ','Pages ')+(off+body.ranges[g.from][0])+(body.ranges[g.from+g.n-1][1]>body.ranges[g.from][0]||g.n>1?'-'+(off+body.ranges[g.from+g.n-1][1]):''),g.title]);
@@ -1874,7 +1982,7 @@ function buildConfPdf(r,name){
  const t=d.splitTextToSize(pdfSafe(q('I confirm that '+(S.set.me||'the person named above')+' carried out the work listed above for me or for my company, and that the amounts shown are correct. The amount I have paid is shown in the Paid column.','Je confirme que '+(S.set.me||'la personne nommée ci-dessus')+' a effectué pour moi ou pour mon entreprise les travaux listés ci-dessus et que les montants indiqués sont exacts. Le montant que j’ai payé figure dans la colonne Payé.')),R-M);d.text(t,M,o.y);o.y+=t.length*11+22;
  [['Name','Position'],['Company','Phone or email']].forEach(([a,b])=>{d.setDrawColor(122,98,112);d.line(M,o.y,M+230,o.y);d.line(M+260,o.y,R,o.y);o.y+=11;o.mute();o.F('normal',8);d.text(o.T(a),M,o.y);d.text(o.T(b),M+260,o.y);o.y+=24});
  d.line(M,o.y,M+230,o.y);d.line(M+260,o.y,M+400,o.y);o.y+=11;o.mute();o.F('normal',8);d.text(o.T('Signature and stamp'),M,o.y);d.text(o.T('Date'),M+260,o.y);o.y+=18;
- d.text(pdfSafe(tr('Document number')+': '+cfNo(name,r)+'   '+tr('Verification code')+': '+cfCode(r,name)),M,o.y);return d}
+ d.text(pdfSafe(tr('Document number')+': '+cfNo(name,r)+'   '+tr('Verification code')+': '+cfCode(r,name)),M,o.y);qrDraw(d,qrText(cfNo(name,r),cfCode(r,name)),R-52,o.y-34,52);return d}
 $('#cf-make').onclick=async()=>{const msg=$('#ex-msg'),r=exRange(),n=$('#cf-cl').value;
  if(!n)return err(msg,q('There are no clients yet. Create an invoice first.','Il n’y a pas encore de client. Créez d’abord une facture.'));
  if(r.from&&r.to&&r.from>r.to)return err(msg,q('The start date is after the end date.','La date de début est après la date de fin.'));
@@ -1904,6 +2012,17 @@ function renderEvidence(){
  add(S.receipts.filter(r=>!S.invoices.find(i=>i.no===r.inv)).map(r=>r.no),'receipts whose invoice is not in the records','reçus dont la facture n’est pas dans les enregistrements');
  add(cfClients().filter(n=>!PROOFS.get(cfKey(n))),'clients without a signed confirmation letter','clients sans lettre de confirmation signée');
  add(BS().filter(b=>!PROOFS.get(bsKey(b))).map(b=>b.a+' '+b.t),'bank or mobile-money statements without a photo','relevés bancaires ou de mobile money sans photo');
+
+ /* consistency warnings: things an officer would notice first. They are questions to check, not accusations. */
+ const nrm=t=>String(t||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim(),lev=(a,b)=>{const m=[...Array(a.length+1)].map((_,i)=>[i]);for(let j=1;j<=b.length;j++)m[0][j]=j;for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)m[i][j]=Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return m[a.length][b.length]};
+ const nos=S.invoices.map(i=>i.no);add([...new Set(nos.filter((n,k)=>nos.indexOf(n)!==k))],'invoice numbers used more than once','numéros de facture utilisés plus d’une fois');
+ add(S.receipts.filter(r=>{const i=S.invoices.find(x=>x.no===r.inv);return i&&r.ts<i.ts-864e5}).map(r=>r.no),'payments dated before their invoice','paiements datés avant leur facture');
+ add(S.invoices.filter(i=>i.ts>Date.now()+864e5).map(i=>i.no),'invoices dated in the future','factures datées dans le futur');
+ add(S.invoices.filter(i=>(i.sa&&i.sb&&i.sb<i.sa)||(i.sb&&dt(i.sb)>i.ts+7*864e5)).map(i=>i.no),'invoices whose work period ends before it starts or long after the invoice date','factures dont la période de travail finit avant de commencer ou longtemps après la date de facture');
+ const cls=cfClients(),sim=[];cls.forEach((a,x)=>cls.slice(x+1).forEach(b=>{const na=nrm(a),nb=nrm(b);if(na&&nb&&(na===nb||(Math.min(na.length,nb.length)>5&&lev(na,nb)<=2)))sim.push(a+' / '+b)}));
+ add(sim,'client names that look like the same client spelled two ways','noms de clients qui semblent être le même client écrit de deux façons');
+ const bigs=[];[...new Set(S.invoices.map(i=>i.cur||'CAD'))].forEach(c=>{const t=S.invoices.filter(i=>(i.cur||'CAD')===c).map(i=>i.total).sort((a,b)=>a-b);if(t.length>=4){const med=t[Math.floor(t.length/2)];S.invoices.forEach(i=>{if((i.cur||'CAD')===c&&med>0&&i.total>med*8)bigs.push(i.no)})}});
+ add(bigs,'invoices much larger than your usual ones (check the amount is right)','factures bien plus élevées que d’habitude (vérifiez le montant)');
  const m=S.set,miss=[!m.me&&q('name','nom'),!m.em&&'email',!m.ph&&q('phone','téléphone'),!m.ad&&q('address','adresse'),!(m.tx||m.idn)&&q('tax or ID number','numéro fiscal ou pièce d’identité')].filter(Boolean);
  if(miss.length)L.push([miss.length,q('profile details missing','informations de profil manquantes'),miss.join(', ')]);
  if(!BS().length)L.push([1,q('no bank or mobile-money statement recorded (the statement of funds then rests on your own records only)','aucun relevé bancaire ou de mobile money enregistré (le relevé de fonds repose alors sur vos seuls enregistrements)'),'']);
@@ -1963,6 +2082,54 @@ function buildWorkPdf(){
  return docEnd(o,wrkNo,wrkCode())}
 $('#ex-work').onclick=async()=>{const m=$('#ex-msg');if(!WK().length)return err(m,q('Add a work sample first (Profile > Work samples).','Ajoutez d’abord un exemple de travail (Profil > Exemples de travail).'));
  const d=buildWorkPdf();if(!d)return err(m,noPdfText());return saveFileAs(new File([d.output('blob')],'work-samples.pdf',{type:'application/pdf'}),m)};
+
+/* ===== Cover letter: a draft built from the records, which the holder edits and signs ===== */
+const CV=()=>S.cvl||(S.cvl={to:'',ty:'',wh:'',tr:'',bd:''});
+function renderCover(){const c=CV(),act=document.activeElement;[['cv-to','to'],['cv-ty','ty'],['cv-wh','wh'],['cv-tr','tr'],['cv-bd','bd']].forEach(([id,k])=>{if(act!==$('#'+id))$('#'+id).value=c[k]||''})}
+['cv-to','cv-ty','cv-wh','cv-tr','cv-bd'].forEach(id=>$('#'+id).oninput=()=>{const c=CV();c.to=$('#cv-to').value;c.ty=$('#cv-ty').value;c.wh=$('#cv-wh').value;c.tr=$('#cv-tr').value;c.bd=$('#cv-bd').value;save()});
+function coverDraft(){const c=CV(),m=S.set,fd=fundsData(ymd(Date.now()),''),a=actData({from:'',to:'',cur:''}),first=S.invoices.length?ymd(Math.min(...S.invoices.map(i=>i.ts))):'',n=a.clients.length;
+ const av=fd.filter(x=>x.avg>0).map(x=>fmt(x.avg,UI,x.cur)).join(' / ');
+ const ty=c.ty||q('my application','ma demande'),wh=c.wh||q('a self-employed worker','travailleur indépendant');
+ const p1=q('Dear Sir or Madam,','Madame, Monsieur,');
+ const p2=q('I am writing in support of '+ty+'. I work as '+wh+(m.ad?' in '+m.ad:'')+'.','Je vous écris à l’appui de '+ty+'. Je travaille comme '+wh+(m.ad?' à '+m.ad:'')+'.');
+ const p3=q('My records show '+(first?'my first invoice on '+first+', ':'')+n+' client(s) invoiced'+(a.activeMonths?', money received in '+a.activeMonths+' of the last '+a.months.length+' months':'')+(av?' and an average of '+av+' per active month':'')+'. These figures come from my own records; the supporting invoices, receipts, bank or mobile-money statements and client confirmations are attached where I have them.','Mes enregistrements montrent '+(first?'ma première facture le '+first+', ':'')+n+' client(s) facturé(s)'+(a.activeMonths?', de l’argent reçu pendant '+a.activeMonths+' des '+a.months.length+' derniers mois':'')+(av?' et une moyenne de '+av+' par mois actif':'')+'. Ces chiffres proviennent de mes propres enregistrements ; les factures, reçus, relevés bancaires ou de mobile money et confirmations de clients à l’appui sont joints lorsque je les ai.');
+ const p4=c.tr?q('Purpose and dates of my trip: '+c.tr+'.','Objet et dates de mon voyage : '+c.tr+'.'):'';
+ const p5=q('I would be grateful if you would consider my application, and I am ready to provide any further document you need.','Je vous serais reconnaissant(e) d’examiner ma demande et je reste disposé(e) à fournir tout autre document nécessaire.');
+ return [p1,p2,p3,p4,p5,q('Yours faithfully,','Veuillez agréer, Madame, Monsieur, mes salutations distinguées.')].filter(Boolean).join('\n\n')}
+$('#cv-gen').onclick=()=>{const c=CV(),m=$('#cv-msg');if(c.bd.trim()&&!confirm(q('Replace the text in the box with a new draft?','Remplacer le texte de la zone par un nouveau brouillon ?')))return;c.bd=coverDraft();save();renderCover();okm(m,q('Draft written. Read it, correct it and make sure every sentence is true.','Brouillon écrit. Relisez-le, corrigez-le et assurez-vous que chaque phrase est vraie.'))};
+const cvCode=(bk=S)=>vfFmt(sha256(['COV',(bk.cvl&&bk.cvl.to)||'',(bk.cvl&&bk.cvl.bd)||'',bk.set.me].join('␟')));
+function buildCoverLetterPdf(){const c=CV();if(!c.bd.trim())return 'empty';
+ const o=docStart(tr('Cover letter'),c.to||'');if(!o)return null;const {d,M,R}=o;
+ if(c.to){o.ink();o.F('bold',10);d.text(pdfSafe(c.to),M,o.y);o.y+=14}
+ o.mute();o.F('normal',9);d.text(pdfSafe(ymd(Date.now())),M,o.y);o.y+=22;
+ o.ink();o.F('normal',10.5);c.bd.split('\n').forEach(line=>{const ls=line.trim()?d.splitTextToSize(pdfSafe(line),R-M):[''];o.page(ls.length*14+4);if(ls[0]!==''||ls.length>1)d.text(ls,M,o.y);o.y+=ls.length*14+(line.trim()?2:0)});
+ o.y+=24;o.page(80);d.setDrawColor(122,98,112);d.line(M,o.y+30,M+200,o.y+30);o.mute();o.F('normal',8);d.text(pdfSafe(S.set.me||''),M,o.y+42);d.text(o.T('Signature'),M,o.y+52);o.y+=70;
+ o.page(14);o.mute();o.F('normal',8);d.text(pdfSafe(tr('Document number')+': COV_ALL   '+tr('Verification code')+': '+cvCode()),M,o.y);qrDraw(d,qrText('COV_ALL',cvCode()),R-52,o.y-34,52);return d}
+const coverPdfOr=msg=>{const d=buildCoverLetterPdf();if(d==='empty'){err(msg,q('Write the letter text first (Profile > Cover letter).','Écrivez d’abord le texte de la lettre (Profil > Lettre de motivation).'));return null}if(!d){err(msg,noPdfText());return null}return d};
+$('#cv-pdf').onclick=async()=>{const m=$('#cv-msg'),d=coverPdfOr(m);if(d)await saveFileAs(new File([d.output('blob')],'cover-letter.pdf',{type:'application/pdf'}),m)};
+$('#ex-cov').onclick=async()=>{const m=$('#ex-msg'),d=coverPdfOr(m);if(d)await saveFileAs(new File([d.output('blob')],'cover-letter.pdf',{type:'application/pdf'}),m)};
+
+/* ===== Tax filing summary: totals, tax collected and withheld, expenses by category and a month-by-month table, with a declaration ===== */
+const taxNo=r=>'TAX_'+(r.from||'ALL')+'_'+(r.to||'ALL')+'_'+(r.cur||'ALL');
+function taxData(r){const to=r.to?dt(r.to)+864e5-1:Date.now(),from=r.from?dt(r.from):firstTs(),ms=monList(from,Math.min(to,Date.now()),24);
+ return summaryData(r).map(c=>({...c,months:ms.map(mm=>{const a=acctTotals(c.cur,Math.max(new Date(mm[0],mm[1],1).getTime(),r.from?dt(r.from)-12*36e5:-Infinity),Math.min(monEnd(mm[0],mm[1]),to));return{m:monName(mm),in:a.rcIn+a.cashIn,out:a.cashOut+a.supOut}})}))}
+const taxCode=(r,bk=S)=>vfFmt(sha256(['TAX',taxNo(r),taxData(r).map(c=>[c.cur,c.inv,c.rc,c.fee,c.tax,c.wh,c.cin,c.cout,c.catOut.map(x=>x.join('=')).join(','),c.months.map(x=>x.m+':'+x.in+'/'+x.out).join(',')].join('|')).join(';'),bk.set.me].join('␟')));
+function buildTaxPdf(r){const data=taxData(r),per=r.from||r.to?(r.from||'...')+q(' to ',' au ')+(r.to||'...'):tr('All time'),o=docStart(tr('Tax filing summary'),tr('Period')+': '+per+(r.cur?' ('+r.cur+')':''));if(!o)return null;const {d,M,R}=o;
+ docNote(o,q('Totals from the account holder’s own records, for preparing a tax return. It is not a tax return, not an audit and not an official certificate. Confirm the rules and rates with the tax office or an accountant.','Totaux issus des propres enregistrements du titulaire, pour préparer une déclaration d’impôts. Ce n’est ni une déclaration, ni un audit, ni un certificat officiel. Vérifiez les règles et les taux auprès de l’administration fiscale ou d’un comptable.'));
+ if(!data.length){o.ink();o.F('normal',11);d.text(pdfSafe(q('Nothing to report for this period.','Rien à signaler pour cette période.')),M,o.y);return d}
+ data.forEach(c=>{const f=v=>pdfSafe(fmt(v,UI,c.cur)),row=(a,b,bold)=>{o.page(16);o.F(bold?'bold':'normal',bold?10.5:9.5);bold?o.ink():o.mute();d.text(pdfSafe(a),M+10,o.y);d.text(b,R-10,o.y,{align:'right'});o.y+=14};
+  o.page(200);d.setFillColor(247,240,244);d.rect(M,o.y,R-M,22,'F');d.setTextColor(...o.A);o.F('bold',12);d.text(c.cur,M+10,o.y+15);o.y+=36;
+  row(o.T('Invoices issued')+' ('+c.invN+')',f(c.inv));row(o.T('Payments received')+' ('+c.rcN+')',f(c.rc));row(o.T('Gateway fees'),'-'+f(c.fee));row(o.T('Net received'),f(c.net));row(o.T('Tax collected'),f(c.tax));
+  if(c.wh)row(o.T('Income tax deducted'),f(c.wh));if(c.refN)row(o.T('Refunds')+' ('+c.refN+')','-'+f(c.ref));
+  row(o.T('Cash in/Income'),f(c.cin));row(o.T('Cash out/Expenses'),'-'+f(c.cout));
+  const inc=c.net+c.cin,exp=c.cout;row(q('Income in the period','Revenus de la période'),f(inc),true);row(q('Expenses in the period','Dépenses de la période'),'-'+f(exp),true);row(q('Result (income minus expenses)','Résultat (revenus moins dépenses)'),f(inc-exp),true);
+  if(c.catOut.length){o.y+=6;o.page(30);o.mute();o.F('bold',9);d.text(o.T('Cash out/Expenses by category'),M+10,o.y);o.y+=13;c.catOut.forEach(([k,v])=>{o.page(14);o.F('normal',9);o.ink();d.text(pdfSafe(tr(k)),M+20,o.y);d.text(f(v),R-10,o.y,{align:'right'});o.y+=12})}
+  o.y+=8;o.page(40);o.mute();o.F('bold',9);d.text(o.T('Month by month'),M+10,o.y);o.y+=6;d.setDrawColor(...o.A);d.line(M,o.y,R,o.y);o.y+=12;
+  o.F('normal',8);d.text(o.T('Month'),M+10,o.y);d.text(o.T('Money in'),M+230,o.y,{align:'right'});d.text(q('Money out','Argent sorti'),M+350,o.y,{align:'right'});d.text(q('Net','Net'),R-10,o.y,{align:'right'});o.y+=11;
+  c.months.forEach(x=>{o.page(14);o.ink();o.F('normal',9);d.text(x.m,M+10,o.y);d.text(f(x.in),M+230,o.y,{align:'right'});d.text('-'+f(x.out),M+350,o.y,{align:'right'});d.text(f(x.in-x.out),R-10,o.y,{align:'right'});o.y+=12});o.y+=14});
+ return docEnd(o,taxNo(r),taxCode(r))}
+$('#ex-tax').onclick=async()=>{const m=$('#ex-msg'),r=exRange();if(r.from&&r.to&&r.from>r.to)return err(m,q('The start date is after the end date.','La date de début est après la date de fin.'));
+ const d=buildTaxPdf(r);if(!d)return err(m,noPdfText());return saveFileAs(new File([d.output('blob')],'tax-filing-summary_'+rangeTag(r)+'.pdf',{type:'application/pdf'}),m)};
 const fndCode=(asOf,cur,bk=S)=>vfFmt(sha256(['FND',fndNo(asOf,cur),fundsData(asOf,cur).map(c=>c.cur+':'+c.bal.total+':'+c.rows.map(x=>x.m+'='+x.close).join(',')).join(';'),bankStr(asOf,cur),bk.set.me].join('␟')));
 function actData(r){
  const to=r.to?dt(r.to)+864e5-1:Date.now(),from=r.from?dt(r.from):firstTs(),months=monList(from,Math.min(to,Date.now()),36),{invs,rcs}=pick(r),paid=rcs.filter(x=>x.status==='paid'),cl=x=>{const i=S.invoices.find(y=>y.no===x.inv);return i?i.cl:'?'};
@@ -1985,7 +2152,7 @@ function docEnd(o,no,code){
  o.page(150);o.ink();o.F('bold',10);o.d.text(o.T('Declaration'),o.M,o.y);o.y+=14;o.F('normal',9);
  const dl=o.d.splitTextToSize(pdfSafe(q('I declare that the information in this document is true and complete to the best of my knowledge and that it was prepared by me from my own records. It is not an audit and not an official certificate, and it is not a bank statement.','Je déclare que les informations de ce document sont exactes et complètes à ma connaissance et qu’il a été préparé par moi à partir de mes propres registres. Ce n’est ni un audit, ni un certificat officiel, ni un relevé bancaire.')),o.R-o.M);
  o.d.text(dl,o.M,o.y);o.y+=dl.length*11+34;o.d.setDrawColor(122,98,112);o.d.line(o.M,o.y,o.M+200,o.y);o.d.line(o.M+260,o.y,o.M+400,o.y);o.y+=11;o.mute();o.F('normal',8);o.d.text(o.T('Signature'),o.M,o.y);o.d.text(o.T('Date'),o.M+260,o.y);o.y+=18;
- o.d.text(pdfSafe(tr('Document number')+': '+no+'   '+tr('Verification code')+': '+code),o.M,o.y);return o.d}
+ o.d.text(pdfSafe(tr('Document number')+': '+no+'   '+tr('Verification code')+': '+code),o.M,o.y);qrDraw(o.d,qrText(no,code),o.R-52,o.y-34,52);return o.d}
 const fundsNote=()=>q('Balance of the account holder’s own records: payments received and the cash book. This is not a bank statement.','Solde des propres enregistrements du titulaire du compte : paiements reçus et livre de caisse. Ceci n’est pas un relevé bancaire.');
 function buildFundsPdf(asOf,cur){
  const data=fundsData(asOf,cur),o=docStart(tr('Statement of funds'),tr('As of')+' '+asOf+(cur?' ('+cur+')':''));if(!o)return null;const {d,M,R}=o;
@@ -2258,6 +2425,9 @@ $('#pl-forgot').onclick=async()=>{
  toast(q('All data and the PIN were erased. You can set a new PIN in Profile.','Toutes les données et le code PIN ont été effacés. Vous pouvez définir un nouveau code PIN dans Profil.'))};
 /* Browser version only: save the page for offline use (the phone app already carries everything). */
 if('serviceWorker' in navigator&&!window.Capacitor&&!window.NativeBridge&&/^https?:$/.test(location.protocol)){try{navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(e){}}
+if(canShareFiles()){$('#ex-share-w').hidden=false;$('#ex-share').checked=lsGet('slip.share')==='1';$('#ex-share').onchange=()=>lsSet('slip.share',$('#ex-share').checked?'1':'0')}
+/* document language: every document button builds its PDF with the chosen language, whatever language the app is showing */
+['ex-pdf','ex-fund','ex-act','ex-stm','ex-work','ex-cov','ex-tax','cf-make','ex-pack','ex-one'].forEach(id=>{const h=$('#'+id).onclick;if(!h)return;$('#'+id).onclick=async function(){const l=$('#ex-lang').value,old=UI;if(l&&l!==old)UI=l;try{return await h.apply(this,arguments)}finally{UI=old}}});
 runLicense();
 renderChips();all();
 recoverFromNative();
