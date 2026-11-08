@@ -2218,7 +2218,7 @@ function refData(r){const P=pick(r).invs,by={};P.slice().sort((a,b)=>a.ts-b.ts).
 const refCode=(r,bk=S)=>vfFmt(sha256(['REF',refNo(r),refData(r).map(c=>[c.n,c.clem||'',c.cph||'',c.cad||'',c.inv,Object.entries(c.tot).join(':'),Object.entries(c.paid).join(':'),c.ct.n||'',c.ct.t||''].join('|')).join(';'),bk.set.me].join('␟')));
 function buildRefPdf(r){
  const rows=refData(r),per=r.from||r.to?(r.from||'...')+q(' to ',' au ')+(r.to||'...'):tr('All time'),o=docStart(tr('Client reference sheet'),per);if(!o)return null;const {d,M,R}=o;
- docNote(o,q('This sheet lists the clients the account holder worked for and how they can be reached. The contact details were typed in by the account holder from the invoices and from what the clients gave. Nothing here was checked or confirmed with the clients.','Cette feuille liste les clients pour lesquels le titulaire du compte a travaillé et comment les joindre. Les coordonnées ont été saisies par le titulaire du compte d’après les factures et ce que les clients ont donné. Rien ici n’a été vérifié ni confirmé auprès des clients.'));
+
  if(!rows.length){o.ink();o.F('normal',11);d.text(pdfSafe(q('No invoices in this period.','Aucune facture sur cette période.')),M,o.y);return d}
  rows.forEach(c=>{const money=m=>Object.keys(m).sort().map(k=>fmt(m[k],UI,k)).join(' + ');
   const lines=[[tr('Address'),c.cad],[tr('Email'),c.clem],[tr('Phone'),c.cph],['RCCM / NIU',[c.rc,c.niu].filter(Boolean).join(' / ')],[q('Reference contact','Personne de référence'),[c.ct.n,c.ct.t].filter(Boolean).join(' - ')],[q('Work','Travaux'),c.inv+q(' invoice(s), '+ymd(c.first)+' to '+ymd(c.last),' facture(s), du '+ymd(c.first)+' au '+ymd(c.last))],[q('Billed / paid','Facturé / payé'),money(c.tot)+' / '+money(c.paid)],[q('Signed confirmation letter','Lettre de confirmation signée'),PROOFS.get(cfKey(c.n))?q('on file','au dossier'):q('not on file','pas au dossier')]].filter(x=>x[1]);
@@ -2340,7 +2340,7 @@ const wrkNo='WRK_ALL';
 const wrkCode=(bk=S)=>vfFmt(sha256(['WRK',wrkNo,(bk.work||[]).slice().sort((a,b)=>(a.d||'').localeCompare(b.d||'')||a.t.localeCompare(b.t)).map(w=>[w.t,w.cl,w.d,w.n,w.u].join('|')).join(';'),bk.set.me].join('\u241f')));
 function buildWorkPdf(){
  const L=wkList(),o=docStart(tr('Work samples'),q(L.length+' item(s)',L.length+' élément(s)'));if(!o)return null;const {d,M,R}=o;
- docNote(o,q('These are examples of work done by the account holder, entered by the account holder. They describe the work only; the evidence of the work and the payment is in the invoices, the receipts and the client confirmations.','Ce sont des exemples de travaux réalisés par le titulaire du compte, saisis par lui. Ils décrivent le travail seulement ; la preuve du travail et du paiement se trouve dans les factures, les reçus et les confirmations des clients.'));
+
  if(!L.length){o.ink();o.F('normal',11);d.text(pdfSafe(q('No work samples recorded yet.','Aucun exemple de travail enregistré.')),M,o.y);return d}
  L.forEach(w=>{const pf=PROOFS.get(wsKey(w));let iw=0,ih=0;if(pf){try{const p=d.getImageProperties(pf.img),k=Math.min(220/p.width,170/p.height,1);iw=p.width*k;ih=p.height*k}catch(e){}}
   const ds=d.splitTextToSize(pdfSafe(w.n||''),R-M);o.page(40+ds.length*11+ih+(w.u?12:0)+16);
@@ -2428,7 +2428,7 @@ const fundsNote=()=>q('Balance of the account holder’s own records: payments r
 function buildActivityPdf(r){
  const a=actData(r),per=r.from||r.to?(r.from||'...')+q(' to ',' au ')+(r.to||'...'):tr('All time'),o=docStart(tr('History of work activity'),tr('Period')+': '+per+(r.cur?' ('+r.cur+')':''));if(!o)return null;const {d,M,R}=o;
  const first=a.clients.length?Math.min(...a.clients.map(c=>c.first)):null;
- docNote(o,q('This report shows the work and payments recorded by the account holder, month by month. It describes activity only; the evidence for each item is the invoice, the receipt and the payment proof listed in the pack.','Ce rapport présente le travail et les paiements enregistrés par le titulaire du compte, mois par mois. Il décrit l’activité seulement ; la preuve de chaque élément est la facture, le reçu et la preuve de paiement du dossier.'));
+
  if(!a.per.length){o.ink();o.F('normal',11);d.text(pdfSafe(q('Nothing to report for this period.','Rien à signaler pour cette période.')),M,o.y);return d}
  [[q('First invoice','Première facture'),first?ymd(first):'-'],[q('Months with activity','Mois avec activité'),a.activeMonths+' / '+a.months.length],[q('Different clients','Clients différents'),String(a.clients.length)],[q('Clients invoiced more than once','Clients facturés plus d’une fois'),String(a.clients.filter(c=>c.inv>1).length)]].forEach(([k,v])=>{o.page(14);o.mute();o.F('normal',9);d.text(pdfSafe(k),M,o.y);o.ink();o.F('bold',9);d.text(v,M+230,o.y,{align:'right'});o.y+=13});o.y+=8;
  a.per.forEach(p=>{const f=v=>pdfSafe(fmt(v,UI,p.cur));o.page(90);d.setFillColor(247,240,244);d.rect(M,o.y,R-M,22,'F');d.setTextColor(...o.A);o.F('bold',12);d.text(p.cur,M+10,o.y+15);o.y+=34;
