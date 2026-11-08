@@ -1112,7 +1112,7 @@ $('#cn-go').onclick=()=>{const i=S.invoices.find(x=>x.no===cnInv),m=$('#cn-m');i
  if(!(amt>0))return err(m,q('Enter the credit amount.','Saisissez le montant du crédit.'));
  if(amt>b)return err(m,q('A credit note cannot be more than the balance still owed ('+fmt(Math.max(b,0),UI,i.cur)+'). To give money back after a payment, use Refund on the receipt.','Une note de crédit ne peut pas dépasser le solde encore dû ('+fmt(Math.max(b,0),UI,i.cur)+'). Pour rendre de l’argent après un paiement, utilisez Rembourser sur le reçu.'));
  if(!why)return err(m,q('Write the reason. It is printed on the credit note.','Écrivez le motif. Il est imprimé sur la note de crédit.'));
- if(!$('#cn-d').value||dt($('#cn-d').value)>Date.now())return err(m,q('Choose a date that is not in the future.','Choisissez une date qui n’est pas dans le futur.'));
+ if(!$('#cn-d').value||$('#cn-d').value>today())return err(m,q('Choose a date that is not in the future.','Choisissez une date qui n’est pas dans le futur.'));
  S.ncn=(S.ncn||0)+1;const c={no:'CN-'+S.ncn,ts:dt($('#cn-d').value),amt,tx:Math.round(amt*i.tax/(i.total-(i.wh||0))),why:why.slice(0,160)};(i.cr||(i.cr=[])).push(c);save();
  $('#cn').hidden=true;cnInv=null;renderInv();toast(q('Credit note '+c.no+' created. Use its PDF button on the invoice.','Note de crédit '+c.no+' créée. Utilisez son bouton PDF sur la facture.'))};
 /* ===== Quotes: an offer that is not an invoice; Make invoice copies it into the form ===== */
@@ -1901,7 +1901,7 @@ function summaryData(r){
  return curs.sort().map(c=>{
   const I=invs.filter(i=>(i.cur||'CAD')===c),P=rcs.filter(x=>curOf(x)===c&&x.status==='paid'),F=rcs.filter(x=>curOf(x)===c&&x.status==='refunded'),C=live.filter(e=>e.cur===c);
   const cat=k=>{const m={};C.filter(e=>e.kind===k).forEach(e=>m[e.cat]=(m[e.cat]||0)+e.amount);return Object.entries(m).sort((a,b)=>b[1]-a[1])};
-  return{cur:c,invN:I.length,inv:sum(I,i=>i.total),rcN:P.length,rc:sum(P,x=>x.amount),fee:sum(P,x=>x.fee||0),net:sum(P,x=>x.amount-(x.fee||0)),tax:sum(P,x=>x.tax||0),wh:sum(P,x=>x.wh||0),refN:F.length,ref:sum(F,x=>x.amount),cin:sum(C.filter(e=>e.kind==='in'),e=>e.amount),cout:sum(C.filter(e=>e.kind==='out'),e=>e.amount),catIn:cat('in'),catOut:cat('out'),acct:acctTotals(c,fromTs,toTs)}});
+  return{cur:c,invN:I.length,inv:sum(I,i=>i.total-credOf(i)),rcN:P.length,rc:sum(P,x=>x.amount),fee:sum(P,x=>x.fee||0),net:sum(P,x=>x.amount-(x.fee||0)),tax:sum(P,x=>x.tax||0),wh:sum(P,x=>x.wh||0),refN:F.length,ref:sum(F,x=>x.amount),cin:sum(C.filter(e=>e.kind==='in'),e=>e.amount),cout:sum(C.filter(e=>e.kind==='out'),e=>e.amount),catIn:cat('in'),catOut:cat('out'),acct:acctTotals(c,fromTs,toTs)}});
 }
 function summaryRows(r){
  const rows=[['Report','Financial summary'],['Account',S.set.me||''],['Period from',r.from||'All time'],['Period to',r.to||'All time'],['Currency filter',r.cur||'All currencies'],['Generated on',ymd(Date.now())],[],['Section','Item','Currency','Value']];
@@ -1995,7 +1995,7 @@ function stmData(r){const {invs,rcs}=pick(r),paid=rcs.filter(x=>x.status==='paid
   const I=invs.filter(i=>(i.cur||'CAD')===c).sort((a,b)=>a.ts-b.ts),P=paid.filter(x=>curOf(x)===c).sort((a,b)=>a.ts-b.ts);
   const cl={};I.forEach(i=>{const k=i.cl;(cl[k]=cl[k]||{n:k,inv:0,billed:0,rec:0}).inv++;cl[k].billed+=i.total-credOf(i)});
   P.forEach(x=>{const i=S.invoices.find(y=>y.no===x.inv),k=i?i.cl:'?';(cl[k]=cl[k]||{n:k,inv:0,billed:0,rec:0}).rec+=x.amount});
-  return{cur:c,I,P,cl:Object.values(cl).sort((a,b)=>a.n.localeCompare(b.n)),billed:I.reduce((t,i)=>t+i.total,0),rec:P.reduce((t,x)=>t+x.amount,0)}})}
+  return{cur:c,I,P,cl:Object.values(cl).sort((a,b)=>a.n.localeCompare(b.n)),billed:I.reduce((t,i)=>t+i.total-credOf(i),0),rec:P.reduce((t,x)=>t+x.amount,0)}})}
 const stmCode=(r,bk=S)=>vfFmt(sha256(['STM',stmNo(r),stmData(r).map(c=>c.cur+':'+c.I.map(i=>i.no+'='+i.total).join(',')+':'+c.P.map(x=>x.no+'='+x.amount).join(',')).join(';'),bk.set.me].join('\u241f')));
 function buildStatementPdf(r){
  const J=window.jspdf;if(!J)return null;
@@ -2213,7 +2213,7 @@ const cfCode=(r,n,bk=S)=>vfFmt(sha256(['CNF',cfNo(n,r),cfData(r,n).map(x=>x.i.no
 /* Client reference sheet: who you worked for and how a reader could reach them, filled in by you. The app contacts nobody and checks nothing. */
 const CR=()=>S.cref||(S.cref={});
 const refNo=r=>'REF_'+(r.from||'ALL')+'_'+(r.to||'ALL')+'_'+(r.cur||'ALL');
-function refData(r){const P=pick(r).invs,by={};P.slice().sort((a,b)=>a.ts-b.ts).forEach(i=>{const c=by[i.cl]||(by[i.cl]={n:i.cl,inv:0,first:i.ts,last:i.ts,tot:{},paid:{}});c.inv++;c.last=i.ts;['clem','cph','cad','rc','niu'].forEach(k=>{if(i[k])c[k]=i[k]});const cu=i.cur||'CAD';c.tot[cu]=(c.tot[cu]||0)+i.total;c.paid[cu]=(c.paid[cu]||0)+paidOf(i.no)});
+function refData(r){const P=pick(r).invs,by={};P.slice().sort((a,b)=>a.ts-b.ts).forEach(i=>{const c=by[i.cl]||(by[i.cl]={n:i.cl,inv:0,first:i.ts,last:i.ts,tot:{},paid:{}});c.inv++;c.last=i.ts;['clem','cph','cad','rc','niu'].forEach(k=>{if(i[k])c[k]=i[k]});const cu=i.cur||'CAD';c.tot[cu]=(c.tot[cu]||0)+i.total-credOf(i);c.paid[cu]=(c.paid[cu]||0)+paidOf(i.no)});
  return Object.values(by).sort((a,b)=>a.n.localeCompare(b.n)).map(c=>({...c,ct:CR()[cfSlug(c.n)]||{}}))}
 const refCode=(r,bk=S)=>vfFmt(sha256(['REF',refNo(r),refData(r).map(c=>[c.n,c.clem||'',c.cph||'',c.cad||'',c.inv,Object.entries(c.tot).join(':'),Object.entries(c.paid).join(':'),c.ct.n||'',c.ct.t||''].join('|')).join(';'),bk.set.me].join('␟')));
 function buildRefPdf(r){
@@ -2243,7 +2243,7 @@ function buildConfPdf(r,name){
  const tot={};
  rows.forEach(({i,paid})=>{const L=svLines(i,UI).map(([a,b])=>a+': '+b),svc=[(i.items||[]).map(x=>x.d).filter(Boolean).join(', '),...L].filter(Boolean).join('\n'),ls=d.splitTextToSize(pdfSafe(svc||'-'),R-M-90-150);o.page(ls.length*11+8);
   o.ink();o.F('bold',9);d.text(pdfSafe(i.no),M,o.y);o.F('normal',8);o.mute();d.text(pdfSafe(ymd(i.ts)),M,o.y+10);o.ink();o.F('normal',9);d.text(ls,M+90,o.y);d.text(pdfSafe(fmt(i.total,UI,i.cur||'CAD')),R-70,o.y,{align:'right'});d.text(pdfSafe(fmt(paid,UI,i.cur||'CAD')),R,o.y,{align:'right'});
-  o.y+=Math.max(ls.length*11,22)+6;const c=i.cur||'CAD';(tot[c]=tot[c]||{b:0,p:0});tot[c].b+=i.total;tot[c].p+=paid});
+  o.y+=Math.max(ls.length*11,22)+6;const c=i.cur||'CAD';(tot[c]=tot[c]||{b:0,p:0});tot[c].b+=i.total-credOf(i);tot[c].p+=paid});
  o.y+=2;d.line(M,o.y,R,o.y);o.y+=14;Object.keys(tot).sort().forEach(c=>{o.page(14);o.ink();o.F('bold',9);d.text(pdfSafe(q('Total ','Total ')+c),M+90,o.y);d.text(pdfSafe(fmt(tot[c].b,UI,c)),R-70,o.y,{align:'right'});d.text(pdfSafe(fmt(tot[c].p,UI,c)),R,o.y,{align:'right'});o.y+=14});
  o.y+=10;o.page(210);o.ink();o.F('bold',10);d.text(o.T('Confirmation by the client'),M,o.y);o.y+=14;o.F('normal',9);
  const t=d.splitTextToSize(pdfSafe(q('I confirm that '+(S.set.me||'the person named above')+' carried out the work listed above for me or for my company, and that the amounts shown are correct. The amount I have paid is shown in the Paid column.','Je confirme que '+(S.set.me||'la personne nommée ci-dessus')+' a effectué pour moi ou pour mon entreprise les travaux listés ci-dessus et que les montants indiqués sont exacts. Le montant que j’ai payé figure dans la colonne Payé.')),R-M);d.text(t,M,o.y);o.y+=t.length*11+22;
@@ -2404,7 +2404,7 @@ const fndCode=(asOf,cur,bk=S)=>vfFmt(sha256(['FND',fndNo(asOf,cur),fundsData(asO
 function actData(r){
  const to=r.to?dt(r.to)+864e5-1:Date.now(),from=r.from?dt(r.from):firstTs(),months=monList(from,Math.min(to,Date.now()),36),{invs,rcs}=pick(r),paid=rcs.filter(x=>x.status==='paid'),cl=x=>{const i=S.invoices.find(y=>y.no===x.inv);return i?i.cl:'?'};
  const cs=[...new Set([...invs.map(i=>i.cur||'CAD'),...paid.map(curOf)])].sort(),mk=m=>x=>monKey(x.ts)===m;
- const per=cs.map(c=>({cur:c,rows:months.map(mm=>{const m=monName(mm),I=invs.filter(i=>(i.cur||'CAD')===c&&mk(m)(i)),P=paid.filter(x=>curOf(x)===c&&mk(m)(x));return{m,invN:I.length,inv:I.reduce((t,i)=>t+i.total,0),rcN:P.length,rc:P.reduce((t,x)=>t+x.amount,0)}})}));
+ const per=cs.map(c=>({cur:c,rows:months.map(mm=>{const m=monName(mm),I=invs.filter(i=>(i.cur||'CAD')===c&&mk(m)(i)),P=paid.filter(x=>curOf(x)===c&&mk(m)(x));return{m,invN:I.length,inv:I.reduce((t,i)=>t+i.total-credOf(i),0),rcN:P.length,rc:P.reduce((t,x)=>t+x.amount,0)}})}));
  const mc=months.map(mm=>{const m=monName(mm);return{m,n:new Set([...invs.filter(mk(m)).map(i=>i.cl),...paid.filter(mk(m)).map(cl)]).size}});
  const cm={};invs.forEach(i=>{const c=cm[i.cl]||(cm[i.cl]={n:i.cl,first:i.ts,last:i.ts,inv:0});c.first=Math.min(c.first,i.ts);c.last=Math.max(c.last,i.ts);c.inv++});
  return{months,per,mc,clients:Object.values(cm).sort((a,b)=>b.inv-a.inv||a.n.localeCompare(b.n)),activeMonths:mc.filter(x=>x.n>0).length}}
