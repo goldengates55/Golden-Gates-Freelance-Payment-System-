@@ -38,8 +38,9 @@ button[aria-pressed=true]{border-color:var(--acc);color:var(--acc);font-weight:6
 
 <h2>3. Connections the app makes</h2>
 <ul>
-<li>The phone app works without internet and loads nothing from outside.</li>
+<li>The phone app works without internet and loads nothing from outside, except the optional mailbox described below.</li>
 <li>The web (home-screen) version loads fonts and the PDF library from public providers the first time you open it online, then keeps them on your device. Those providers can see your device’s IP address, as with any website.</li>
+<li><b>Mailbox (optional).</b> Only if you save a mailbox address and use Send or Check for new documents, the app contacts that mailbox service. Documents are encrypted on your device for the receiver’s ID before they are sent, so the service sees only the receiver’s ID, the size, the time and your device’s IP address, not the contents. A document is deleted from the service when the receiver collects it, or after 30 days. Your mailbox ID and secret key are stored in your data and in backup files, so keep backup files private. What you receive is only what the sender typed.</li>
 <li>Buttons such as “Chat on WhatsApp”, “Remind” or sharing a file open WhatsApp or your phone’s share sheet only when you tap them. What you send there is then governed by that app’s own terms.</li>
 </ul>
 
