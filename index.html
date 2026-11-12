@@ -78,7 +78,7 @@ table.h{width:100%;border-collapse:collapse;font-size:14px}
 .h th{text-align:left;color:var(--mute);font-weight:400;padding:6px 8px;border-bottom:1px solid var(--line)}
 .h td{padding:10px 8px;border-bottom:1px solid var(--line)}
 .h tr[data-id]{cursor:pointer}.h tr.on{background:var(--bg)}
-#bal-board{grid-column:1/-1;background:var(--panel,var(--bg));border:1px solid var(--line);border-radius:14px;padding:12px 14px}#bal-board h2{margin:0}#bal-board .hrow{margin-bottom:8px}#bal-body{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.bal-c{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}.bal-c .cu{color:var(--mute);font-size:13px}.bal-c b{display:block;font:700 26px 'Bricolage Grotesque',sans-serif;margin:2px 0 6px}.bal-c small{display:block;color:var(--mute);font-size:12.5px;line-height:1.5}#bal-board.off #bal-body{display:none}#stats{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:14px}
+#bal-board{grid-column:1/-1;background:var(--panel,var(--bg));border:1px solid var(--line);border-radius:14px;padding:12px 14px}#bal-board h2{margin:0}#bal-board .hrow{margin-bottom:8px}#bal-body{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:10px}.bal-c{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}.bal-c .cu{color:var(--mute);font-size:13px}.bal-c b{display:block;font:700 26px 'Bricolage Grotesque',sans-serif;margin:2px 0 6px}.bal-c small{display:block;color:var(--mute);font-size:12.5px;line-height:1.5}#bal-board.off #bal-body{display:none}#stats{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:14px}
 #stats b{display:block;font:700 22px 'Bricolage Grotesque',sans-serif}#stats span{color:var(--mute);font-size:13px}
 .empty{color:var(--mute)}
 nav.tabs{display:flex;gap:4px;margin-top:12px}nav.tabs button{padding:8px 16px;border:1px solid var(--line);background:none;color:var(--mute);border-radius:999px;font:500 14px 'DM Sans',sans-serif;cursor:pointer}nav.tabs button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -182,7 +182,7 @@ button.sec:hover{background:var(--bg)}button.pri:hover:not(:disabled){filter:bri
  .h td.c-id{grid-column:1/3;grid-row:1;font-weight:700;font-size:15px}
  .h td.c-st{grid-column:3;grid-row:1;text-align:right;font-size:13px}
  .h td.c-wide{grid-column:1/4;grid-row:2}
- .h td.c-n{grid-row:3;margin-top:6px;font-size:13.5px}
+ .h td.c-n{grid-row:auto;min-width:0;margin-top:6px;font-size:13.5px}
  .h td.c-n::before{display:block;content:attr(data-l);color:var(--mute);font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1px}
  .h td.c-act{grid-column:1/4;grid-row:4;margin-top:8px;display:flex;gap:8px}
  .h td.c-act button{flex:1;width:auto}.h td.c-act button+button{margin-left:0}
@@ -222,6 +222,12 @@ details.acc[open]>summary{margin-bottom:12px}
 fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mute);padding:0}
 .chk{display:flex;align-items:center;gap:12px;margin:2px 0;color:var(--ink);font-size:15px;min-height:44px}.chk input{width:22px;height:22px;margin:0;flex:none;accent-color:var(--acc)}
 @media print{body *{visibility:hidden}.doc,.doc *{visibility:visible}.doc{position:absolute;left:0;top:0;width:100%;box-shadow:none}}
+/* small screens: wrap anything wider than the screen instead of running off it */
+main>*,.sec2>*,.col{min-width:0}
+.seg{flex-wrap:wrap}.seg button{flex:1 1 auto;min-width:0;white-space:normal;overflow-wrap:anywhere}
+.hrow{flex-wrap:wrap}
+.doc table{width:100%;table-layout:fixed}.doc td,.doc th{overflow-wrap:anywhere;word-break:break-word}
+button,label,p,li,td,th,h1,h2,h3,small,span{overflow-wrap:break-word}
 </style>
 </head>
 <body class="locked">
@@ -618,7 +624,8 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
   <li><b>Verify says the code does not match:</b> the invoice was edited after the PDF was made, the PDF was altered, or the code was typed wrongly. Create the PDF again from the app.</li>
   <li><b>Data gone after reinstalling:</b> use Restore from backup.</li></ul>
   <h3>What's new</h3>
-  <ul><li><b>2026-11-12 (version 1.5):</b> The PIN lock screen now has a “Forgot your PIN?” section that explains the way back in (uninstall the app, then reinstall and restore a backup). The erase button on the lock screen was removed.</li>
+  <ul><li><b>2026-11-12 (version 1.5):</b> Anything wider than a small phone screen now wraps to fit instead of running off the side (balance board, receipts summary, cash-entry buttons, sample invoice preview, client payment habits).</li>
+  <li><b>2026-11-12 (version 1.5):</b> The PIN lock screen now has a “Forgot your PIN?” section that explains the way back in (uninstall the app, then reinstall and restore a backup). The erase button on the lock screen was removed.</li>
   <li><b>2026-11-11 (version 1.5):</b> The version and build number are shown under the title on the home page, and the “new version ready” bar is now gold with a refresh symbol and a dark button so it is easy to see.</li>
   <li><b>2026-11-11 (version 1.5):</b> Delivery status (Sent, Delivered, Seen), monthly statements to linked clients, bank statement check, scanning contact cards with the camera, and saved searches with filters.</li>
   <li><b>2026-11-11 (version 1.5):</b> Mailbox: quote acceptance by the client, optional automatic reminders for overdue invoices, backup of your data to your other phone, and a list of what was sent.</li>
@@ -747,7 +754,8 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
   <li><b>La vérification indique que le code ne correspond pas :</b> la facture a été modifiée après la création du PDF, le PDF a été altéré, ou le code est mal saisi. Recréez le PDF depuis l’application.</li>
   <li><b>Données disparues après réinstallation :</b> utilisez Restaurer une sauvegarde.</li></ul>
   <h3>Nouveautés</h3>
-  <ul><li><b>2026-11-12 (version 1.5) :</b> L’écran de verrouillage par code PIN a maintenant une section « Code PIN oublié ? » qui explique le moyen de rentrer (désinstaller l’application, puis la réinstaller et restaurer une sauvegarde). Le bouton d’effacement de l’écran de verrouillage a été retiré.</li>
+  <ul><li><b>2026-11-12 (version 1.5) :</b> Tout ce qui dépassait d’un petit écran de téléphone passe maintenant à la ligne pour tenir dans l’écran (tableau des soldes, résumé des reçus, boutons de la caisse, aperçu de facture, habitudes de paiement des clients).</li>
+  <li><b>2026-11-12 (version 1.5) :</b> L’écran de verrouillage par code PIN a maintenant une section « Code PIN oublié ? » qui explique le moyen de rentrer (désinstaller l’application, puis la réinstaller et restaurer une sauvegarde). Le bouton d’effacement de l’écran de verrouillage a été retiré.</li>
   <li><b>2026-11-11 (version 1.5) :</b> La version et le numéro de build s’affichent sous le titre de la page d’accueil, et la barre « nouvelle version prête » est maintenant dorée avec un symbole d’actualisation et un bouton sombre pour être bien visible.</li>
   <li><b>2026-11-11 (version 1.5) :</b> Statut de livraison (Envoyé, Livré, Vu), relevés mensuels aux clients liés, vérification du relevé bancaire, scan des cartes de contact avec la caméra, et recherches enregistrées avec filtres.</li>
   <li><b>2026-11-11 (version 1.5) :</b> Boîte d’échange : acceptation de devis par le client, rappels automatiques facultatifs pour les factures en retard, sauvegarde de vos données vers votre autre téléphone, et liste de ce qui a été envoyé.</li>
@@ -3174,7 +3182,7 @@ $('#mb-ack').onchange=()=>{MBO().noack=$('#mb-ack').checked?0:1;save()};
 $('#mb-acc').addEventListener('toggle',mbSeen);
 
 /* Version shown on the home page. Keep APP_BUILD equal to the number in sw.js (a test checks it). */
-const APP_VERSION='1.5',APP_BUILD=42;
+const APP_VERSION='1.5',APP_BUILD=43;
 function renderVer(){const e=$('#app-ver');if(e)e.textContent=q('Version '+APP_VERSION+' (build '+APP_BUILD+')','Version '+APP_VERSION+' (build '+APP_BUILD+')')}
 function renderConf(){const sel=$('#cf-cl'),v=sel.value,L=cfClients();if(document.activeElement===sel)return;
  sel.innerHTML=L.map(n=>`<option value="${esc(n)}">${esc(n)}${PROOFS.get(cfKey(n))?' ✓':''}</option>`).join('');if(L.includes(v))sel.value=v;renderRefFields()}
