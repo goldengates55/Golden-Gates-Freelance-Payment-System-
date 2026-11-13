@@ -253,7 +253,7 @@ main>*,.sec2>*,.col{min-width:0}
 @media (max-width:860px){#cl-habits .h tr{grid-template-columns:repeat(2,minmax(0,1fr))}#cl-habits .h td.c-n{grid-row:auto}#cl-habits .h td.c-wide{grid-column:1/3}}
 .seg{flex-wrap:nowrap}.seg button{flex:1 1 0;min-width:0;padding:8px 4px;font-size:14px;line-height:1.25;white-space:normal;overflow-wrap:break-word}
 .hrow{flex-wrap:wrap}
-.doc table{width:100%;table-layout:fixed}.doc td,.doc th{overflow-wrap:anywhere;word-break:break-word}
+.doc td,.doc th{overflow-wrap:break-word}.doc td.r,.doc th.r{white-space:nowrap;overflow-wrap:normal;word-break:normal}.doc td.r:nth-child(2),.doc th.r:nth-child(2){white-space:normal;text-align:right}
 button,label,p,li,td,th,h1,h2,h3,small,span{overflow-wrap:break-word}
 </style>
 </head>
@@ -653,7 +653,8 @@ button,label,p,li,td,th,h1,h2,h3,small,span{overflow-wrap:break-word}
   <li><b>Verify says the code does not match:</b> the invoice was edited after the PDF was made, the PDF was altered, or the code was typed wrongly. Create the PDF again from the app.</li>
   <li><b>Data gone after reinstalling:</b> use Restore from backup.</li></ul>
   <h3>What's new</h3>
-  <ul><li><b>2026-11-13 (version 1.5):</b> Profile → Appearance has a new Brightness bar (− and +) that makes the backgrounds darker or lighter.</li>
+  <ul><li><b>2026-11-13 (version 1.5):</b> Fixed the overlapping figures in the item table of invoice and receipt previews on small screens (the quantity × rate column now wraps).</li>
+  <li><b>2026-11-13 (version 1.5):</b> Profile → Appearance has a new Brightness bar (− and +) that makes the backgrounds darker or lighter.</li>
   <li><b>2026-11-13 (version 1.5):</b> New Profile → Appearance: a contrast bar with − and + buttons (Standard up to 100%) makes text and borders stronger while the colours stay the same. Light, Dark and Automatic are also available.</li>
   <li><b>2026-11-12 (version 1.5):</b> The “No guarantee of acceptance” clause in the Terms was reworded as “Use it honestly”, stressing that you must record only true and correct information.</li>
   <li><b>2026-11-12 (version 1.5):</b> The footer (and lock screen) now adds a short visa line: “Helps you prepare visa documents. You are required to use this honestly and only record the right information.”</li>
@@ -788,7 +789,8 @@ button,label,p,li,td,th,h1,h2,h3,small,span{overflow-wrap:break-word}
   <li><b>La vérification indique que le code ne correspond pas :</b> la facture a été modifiée après la création du PDF, le PDF a été altéré, ou le code est mal saisi. Recréez le PDF depuis l’application.</li>
   <li><b>Données disparues après réinstallation :</b> utilisez Restaurer une sauvegarde.</li></ul>
   <h3>Nouveautés</h3>
-  <ul><li><b>2026-11-13 (version 1.5) :</b> Profil → Apparence a une nouvelle barre de Luminosité (− et +) qui assombrit ou éclaircit les fonds.</li>
+  <ul><li><b>2026-11-13 (version 1.5) :</b> Correction des chiffres qui se chevauchaient dans le tableau des lignes des aperçus de factures et de reçus sur petit écran (la colonne quantité × tarif passe maintenant à la ligne).</li>
+  <li><b>2026-11-13 (version 1.5) :</b> Profil → Apparence a une nouvelle barre de Luminosité (− et +) qui assombrit ou éclaircit les fonds.</li>
   <li><b>2026-11-13 (version 1.5) :</b> Nouveau : Profil → Apparence : une barre de contraste avec boutons − et + (de Standard jusqu’à 100 %) rend le texte et les bordures plus marqués, les couleurs restant les mêmes. Clair, Sombre et Automatique sont aussi disponibles.</li>
   <li><b>2026-11-12 (version 1.5) :</b> La clause « Aucune garantie d’acceptation » des Conditions a été reformulée en « Utilisez-la honnêtement », qui insiste sur le fait de n’enregistrer que des informations vraies et exactes.</li>
   <li><b>2026-11-12 (version 1.5) :</b> Le pied de page (et l’écran de verrouillage) ajoute une courte ligne sur le visa : « Vous aide à préparer vos documents de visa. Vous devez l’utiliser honnêtement et n’enregistrer que les bonnes informations. »</li>
@@ -3240,7 +3242,7 @@ $('#mb-ack').onchange=()=>{MBO().noack=$('#mb-ack').checked?0:1;save()};
 $('#mb-acc').addEventListener('toggle',mbSeen);
 
 /* Version shown on the home page. Keep APP_BUILD equal to the number in sw.js (a test checks it). */
-const APP_VERSION='1.5',APP_BUILD=53;
+const APP_VERSION='1.5',APP_BUILD=54;
 function renderVer(){const e=$('#app-ver');if(e)e.textContent=q('Version '+APP_VERSION+' (build '+APP_BUILD+')','Version '+APP_VERSION+' (build '+APP_BUILD+')')}
 function renderConf(){const sel=$('#cf-cl'),v=sel.value,L=cfClients();if(document.activeElement===sel)return;
  sel.innerHTML=L.map(n=>`<option value="${esc(n)}">${esc(n)}${PROOFS.get(cfKey(n))?' ✓':''}</option>`).join('');if(L.includes(v))sel.value=v;renderRefFields()}
