@@ -249,7 +249,7 @@ fieldset{border:0;padding:0;margin:14px 0 0}legend{font-size:13px;color:var(--mu
 @media print{body *{visibility:hidden}.doc,.doc *{visibility:visible}.doc{position:absolute;left:0;top:0;width:100%;box-shadow:none}}
 /* small screens: wrap anything wider than the screen instead of running off it */
 main>*,.sec2>*,.col{min-width:0}
-@media (max-width:420px){.seg button{font-size:13px}.h td.c-n{font-size:12.5px;overflow-wrap:normal}.h tr{gap:2px 8px}}
+@media (max-width:420px){.doc table{font-size:13px}.doc td.r,.doc th.r{white-space:normal}.doc td.r{padding-left:6px}.seg button{font-size:13px}.h td.c-n{font-size:12.5px;overflow-wrap:normal}.h tr{gap:2px 8px}}
 @media (max-width:860px){#cl-habits .h tr{grid-template-columns:repeat(2,minmax(0,1fr))}#cl-habits .h td.c-n{grid-row:auto}#cl-habits .h td.c-wide{grid-column:1/3}}
 .seg{flex-wrap:nowrap}.seg button{flex:1 1 0;min-width:0;padding:8px 4px;font-size:14px;line-height:1.25;white-space:normal;overflow-wrap:break-word}
 .hrow{flex-wrap:wrap}
@@ -653,7 +653,8 @@ button,label,p,li,td,th,h1,h2,h3,small,span{overflow-wrap:break-word}
   <li><b>Verify says the code does not match:</b> the invoice was edited after the PDF was made, the PDF was altered, or the code was typed wrongly. Create the PDF again from the app.</li>
   <li><b>Data gone after reinstalling:</b> use Restore from backup.</li></ul>
   <h3>What's new</h3>
-  <ul><li><b>2026-11-13 (version 1.5):</b> Fixed the overlapping figures in the item table of invoice and receipt previews on small screens (the quantity × rate column now wraps).</li>
+  <ul><li><b>2026-11-14 (version 1.5):</b> The install page now has an Install button on the left of “Open in browser”. If the phone does not offer installation, it shows the steps for that phone.</li>
+  <li><b>2026-11-13 (version 1.5):</b> Fixed the overlapping figures in the item table of invoice and receipt previews on small screens (the quantity × rate and amount columns now wrap).</li>
   <li><b>2026-11-13 (version 1.5):</b> Profile → Appearance has a new Brightness bar (− and +) that makes the backgrounds darker or lighter.</li>
   <li><b>2026-11-13 (version 1.5):</b> New Profile → Appearance: a contrast bar with − and + buttons (Standard up to 100%) makes text and borders stronger while the colours stay the same. Light, Dark and Automatic are also available.</li>
   <li><b>2026-11-12 (version 1.5):</b> The “No guarantee of acceptance” clause in the Terms was reworded as “Use it honestly”, stressing that you must record only true and correct information.</li>
@@ -789,7 +790,8 @@ button,label,p,li,td,th,h1,h2,h3,small,span{overflow-wrap:break-word}
   <li><b>La vérification indique que le code ne correspond pas :</b> la facture a été modifiée après la création du PDF, le PDF a été altéré, ou le code est mal saisi. Recréez le PDF depuis l’application.</li>
   <li><b>Données disparues après réinstallation :</b> utilisez Restaurer une sauvegarde.</li></ul>
   <h3>Nouveautés</h3>
-  <ul><li><b>2026-11-13 (version 1.5) :</b> Correction des chiffres qui se chevauchaient dans le tableau des lignes des aperçus de factures et de reçus sur petit écran (la colonne quantité × tarif passe maintenant à la ligne).</li>
+  <ul><li><b>2026-11-14 (version 1.5) :</b> La page d’installation a maintenant un bouton Installer à gauche de « Ouvrir dans le navigateur ». Si le téléphone ne propose pas l’installation, elle affiche les étapes pour ce téléphone.</li>
+  <li><b>2026-11-13 (version 1.5) :</b> Correction des chiffres qui se chevauchaient dans le tableau des lignes des aperçus de factures et de reçus sur petit écran (les colonnes quantité × tarif et montant passent maintenant à la ligne).</li>
   <li><b>2026-11-13 (version 1.5) :</b> Profil → Apparence a une nouvelle barre de Luminosité (− et +) qui assombrit ou éclaircit les fonds.</li>
   <li><b>2026-11-13 (version 1.5) :</b> Nouveau : Profil → Apparence : une barre de contraste avec boutons − et + (de Standard jusqu’à 100 %) rend le texte et les bordures plus marqués, les couleurs restant les mêmes. Clair, Sombre et Automatique sont aussi disponibles.</li>
   <li><b>2026-11-12 (version 1.5) :</b> La clause « Aucune garantie d’acceptation » des Conditions a été reformulée en « Utilisez-la honnêtement », qui insiste sur le fait de n’enregistrer que des informations vraies et exactes.</li>
@@ -1257,7 +1259,8 @@ function head(){const s=S.set;return `${s.logo?`<img class="logo" src="${s.logo}
 const FONTS={sans:{rf:"'DM Sans',system-ui,sans-serif",rh:"'Bricolage Grotesque',sans-serif"},serif:{rf:"'Lora',Georgia,serif",rh:"'Lora',Georgia,serif"}};
 function doc(r,fl,bk=S){
   const m_=bk.set,i=bk.invoices.find(x=>x.no===r.inv),g=GW[r.gw],L=fl?UI:(i.lang||'en'),T=k=>tr(k,L),cu=i.cur||'CAD',f=c=>fmt(c,L,cu);
-  const rows=i.items.map(x=>`<tr><td>${esc(x.d)}</td><td class="r">${num(x.q,L)} × ${f(Math.round(x.r*mu(cu)))}</td><td class="r">${f(line(x,cu))}</td></tr>`).join('');
+  const sp=t=>String(t).replace(/[\u00a0\u202f]/g,' ');/* plain spaces in the item table so a long amount can wrap on a narrow screen */
+  const rows=i.items.map(x=>`<tr><td>${esc(x.d)}</td><td class="r">${num(x.q,L)} × ${sp(f(Math.round(x.r*mu(cu))))}</td><td class="r">${sp(f(line(x,cu)))}</td></tr>`).join('');
   const tag=r.status==='refunded'?'REFUNDED':r.bal<=0?'PAID IN FULL':'PARTIAL PAYMENT';
   return `<div class="doc" lang="${L}" style="--ra:${m_.color||'#9B0A4F'};--rf:${(FONTS[m_.font]||FONTS.sans).rf};--rh:${(FONTS[m_.font]||FONTS.sans).rh}"><div class="top lp-${m_.logoPos||'left'}"><div>${m_.logo?`<img class="logo" src="${m_.logo}" alt="">`:''}<b>${esc(m_.me)}</b></div><div class="no"><h3>${T('Payment receipt')}</h3><span class="rn">${esc(r.no)}</span><br>${when(r.ts,L)}<br>${T('For')} ${esc(i.no)}<br>${T('Invoice date')}: ${when(i.ts,L)}</div></div>
   <div class="hero"><div><small>${T('Payment received')}</small><b class="amt">${f(r.amount)}</b></div><span class="badge ${r.status==='refunded'?'refunded':''}">${T(tag)}</span></div>
@@ -3242,7 +3245,7 @@ $('#mb-ack').onchange=()=>{MBO().noack=$('#mb-ack').checked?0:1;save()};
 $('#mb-acc').addEventListener('toggle',mbSeen);
 
 /* Version shown on the home page. Keep APP_BUILD equal to the number in sw.js (a test checks it). */
-const APP_VERSION='1.5',APP_BUILD=54;
+const APP_VERSION='1.5',APP_BUILD=57;
 function renderVer(){const e=$('#app-ver');if(e)e.textContent=q('Version '+APP_VERSION+' (build '+APP_BUILD+')','Version '+APP_VERSION+' (build '+APP_BUILD+')')}
 function renderConf(){const sel=$('#cf-cl'),v=sel.value,L=cfClients();if(document.activeElement===sel)return;
  sel.innerHTML=L.map(n=>`<option value="${esc(n)}">${esc(n)}${PROOFS.get(cfKey(n))?' ✓':''}</option>`).join('');if(L.includes(v))sel.value=v;renderRefFields()}

@@ -1,6 +1,6 @@
 /* Golden Gates Payments service worker: keeps the app files, fonts and PDF tool on the phone so it opens with no internet.
    Change VERSION whenever you upload a new index.html so phones pick up the update. */
-var VERSION = "goldengates-pay-54";
+var VERSION = "goldengates-pay-57";
 var FILES = ["./", "./index.html", "./privacy.html", "./install.html", "./pdf-lib.min.js", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./icon-maskable-512.png"];
 
 // Outside files the page asks for (fonts, PDF tool): saved on install so the first offline start already works.

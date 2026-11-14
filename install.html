@@ -27,6 +27,7 @@ main{max-width:560px;margin:0 auto;padding:18px 16px 40px}
 .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);font-weight:600}
 .note{border-left:4px solid var(--amber);padding:10px 12px;background:var(--card);border-radius:8px;margin-bottom:14px;font-size:15px}
 .hide{display:none!important}
+.row{display:flex;gap:10px}.row .btn{flex:1;min-width:0;padding:14px 8px;font-size:16px}
 .small{color:var(--mute);font-size:14px}
 footer{text-align:center;color:var(--mute);font-size:14px;padding:0 16px 30px}
 footer a{color:inherit}
@@ -47,8 +48,9 @@ footer a{color:inherit}
 <div class="card">
 <h2 data-k="introT">Put the app on your phone</h2>
 <p style="margin:0" data-k="intro">Manage your stock, sales, debts and reports. It works offline and opens full screen, like a normal app. No app store needed.</p>
-<button type="button" class="btn hide" id="install" data-k="installBtn">Install the app</button>
-<a class="btn ghost" href="./index.html" data-k="open">Open the app in the browser</a>
+<div class="row"><button type="button" class="btn" id="install" data-k="installBtn">Install</button>
+<a class="btn ghost" href="./index.html" data-k="open">Open in browser</a></div>
+<p class="note hide" id="ihint" style="margin:10px 0 0"></p>
 </div>
 
 <div class="card" id="android">
@@ -73,14 +75,14 @@ footer a{color:inherit}
 <script>
 (function(){
   var TXT={
-    en:{iosT:"iPhone (Safari only)",tag:"Built for proof of funds and proof of business activity, through documentation",introT:"Put the app on your phone",intro:"Make invoices and receipts, keep a cash book, and prepare a statement of funds and a history of work activity for a visa application. It works offline and opens full screen, like a normal app. No app store needed.",installBtn:"Install the app",open:"Open the app in the browser",
+    en:{iosT:"iPhone (Safari only)",tag:"Built for proof of funds and proof of business activity, through documentation",introT:"Put the app on your phone",intro:"Make invoices and receipts, keep a cash book, and prepare a statement of funds and a history of work activity for a visa application. It works offline and opens full screen, like a normal app. No app store needed.",installBtn:"Install",installIos:"On iPhone, use Safari: tap Share, then Add to Home Screen. The steps are below.",installNo:"Your browser did not offer the install button. Open this page in Chrome, tap the menu (3 dots) and choose Install app. The steps are below.",open:"Open in browser",
       and:["Open this page in Chrome.","Tap the menu (3 dots, top right).","Tap Install app (or Add to Home screen).","Open the app from its new icon."],
       ios:["Open this page in Safari.","Tap the Share button.","Scroll down and tap Add to Home Screen, then Add.","Always open the app from its Home Screen icon."],
       iosWarn:"On iPhone, use Safari only. Chrome and in-app browsers cannot add the app. Keep using the Home Screen icon so Safari does not clear your data, and save a backup file every week (Profile > Backup).",
       actT:"Activate",act:"After installing, the app shows your phone code (also in Profile > License). Send it to us on WhatsApp and we will send you your activation code.",wa:"Contact us on WhatsApp",callT:"WhatsApp and calls",
       inappT:"Open this page in your browser first.",inapp:"You opened the link inside another app (WhatsApp, Facebook, Instagram...). Tap the menu (3 dots) and choose Open in Chrome (Android) or Open in Safari (iPhone), or copy the link and paste it there.",copy:"Copy the link",copied:"Link copied",
       doneT:"The app is already installed.",done:"Open it from your home screen.",waMsg:"Hello, I installed Golden Gates Freelance Payment System and want to activate it."},
-    fr:{iosT:"iPhone (Safari uniquement)",tag:"Conçu pour la preuve de fonds et la preuve d'activité professionnelle, par la documentation",introT:"Mettez l'application sur votre téléphone",intro:"Faites des factures et des reçus, tenez un livre de caisse et préparez un relevé de fonds et un historique d'activité pour une demande de visa. Elle fonctionne sans internet et s'ouvre en plein écran, comme une vraie application. Pas besoin de boutique d'applications.",installBtn:"Installer l'application",open:"Ouvrir l'application dans le navigateur",
+    fr:{iosT:"iPhone (Safari uniquement)",tag:"Conçu pour la preuve de fonds et la preuve d'activité professionnelle, par la documentation",introT:"Mettez l'application sur votre téléphone",intro:"Faites des factures et des reçus, tenez un livre de caisse et préparez un relevé de fonds et un historique d'activité pour une demande de visa. Elle fonctionne sans internet et s'ouvre en plein écran, comme une vraie application. Pas besoin de boutique d'applications.",installBtn:"Installer",installIos:"Sur iPhone, utilisez Safari : touchez Partager, puis Ajouter à l'écran d'accueil. Les étapes sont ci-dessous.",installNo:"Votre navigateur n'a pas proposé le bouton d'installation. Ouvrez cette page dans Chrome, touchez le menu (3 points) et choisissez Installer l'application. Les étapes sont ci-dessous.",open:"Ouvrir dans le navigateur",
       and:["Ouvrez cette page dans Chrome.","Touchez le menu (3 points, en haut à droite).","Touchez Installer l'application (ou Ajouter à l'écran d'accueil).","Ouvrez l'application depuis sa nouvelle icône."],
       ios:["Ouvrez cette page dans Safari.","Touchez le bouton Partager.","Faites défiler et touchez Sur l'écran d'accueil, puis Ajouter.","Ouvrez toujours l'application depuis son icône de l'écran d'accueil."],
       iosWarn:"Sur iPhone, utilisez uniquement Safari. Chrome et les navigateurs intégrés ne peuvent pas ajouter l'application. Utilisez toujours l'icône de l'écran d'accueil pour que Safari n'efface pas vos données, et enregistrez un fichier de sauvegarde chaque semaine (Profil > Sauvegarde).",
@@ -114,9 +116,15 @@ footer a{color:inherit}
   };
 
   var evt=null;
-  window.addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); evt=e; $("#install").classList.remove("hide"); });
+  window.addEventListener("beforeinstallprompt",function(e){ e.preventDefault(); evt=e; });
   window.addEventListener("appinstalled",function(){ $("#install").classList.add("hide"); $("#done").classList.remove("hide"); });
-  $("#install").onclick=function(){ if(evt){ evt.prompt(); evt=null; $("#install").classList.add("hide"); } };
+  if(standalone) $("#install").classList.add("hide");
+  $("#install").onclick=function(){
+    if(evt){ evt.prompt(); evt=null; return; }
+    /* no install prompt available: say why and show the steps for this phone */
+    var h=$("#ihint"); h.textContent=ios?TXT[lang].installIos:TXT[lang].installNo; h.classList.remove("hide");
+    var t=$(ios?"#iphone":"#android"); if(t&&t.scrollIntoView) t.scrollIntoView({behavior:"smooth",block:"start"});
+  };
   if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});
 })();
 </script>
